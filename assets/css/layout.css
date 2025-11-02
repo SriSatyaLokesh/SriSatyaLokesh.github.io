@@ -1,3 +1,13 @@
+#skills .header-col h1 {
+   font: 18px/24px 'Cinzel Decorative', sans-serif;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   font-weight: bold;
+}
+#skills .header-col h1 span {
+   border-bottom: 3px solid #11ABB0;
+   padding-bottom: 6px;
+}
 #testimonials {
    position: relative;
    z-index: 1;
