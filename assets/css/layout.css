@@ -1,3 +1,35 @@
+#testimonials {
+   position: relative;
+   z-index: 1;
+}
+#testimonials::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0,0,0,0.55);
+   z-index: 0;
+   pointer-events: none;
+}
+#testimonials .text-container,
+#testimonials .row,
+#testimonials .flexslider,
+#testimonials .slides,
+#testimonials .slides > li,
+#testimonials blockquote,
+#testimonials cite {
+   /* intentionally left blank to restore slider animation */
+}
+
+/* Remove bullets in recommendations only, let FlexSlider control layout/animation */
+.slides {
+   list-style: none;
+}
+.slides > li::marker {
+   display: none;
+}
 /* --- Resume CTA Button Styles (moved from index.html) --- */
 .cta-btn.resume-cta {
    padding: 10px 26px;
@@ -224,7 +256,11 @@ header .scrolldown a:hover { color: #00c6ff; }
    left: 0;
    top: 0;
 }
-.opaque { background-color: #fff; }
+/* Nav bar white background and shadow after scroll */
+.opaque {
+   background-color: #fff !important;
+   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
 .opaque #nav a {
    color: #222 !important;
 }

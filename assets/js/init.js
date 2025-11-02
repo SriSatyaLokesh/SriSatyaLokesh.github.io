@@ -128,9 +128,9 @@
       controlNav: true,
       directionNav: false,
       smoothHeight: true,
-      slideshowSpeed: 7000,
-      animationSpeed: 600,
-      randomize: false,
+   slideshowSpeed: 3000,
+   animationSpeed: 350,
+      randomize: false
    });
 
 /*----------------------------------------------------*/
