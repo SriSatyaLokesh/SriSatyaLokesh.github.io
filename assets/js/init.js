@@ -187,9 +187,9 @@
 
   $(function() {
     typed.typed({
-      strings: [ "a Developer,", "a Photographer,", "an Open Source Contributer,", "the ONE you're looking for."],
+      strings: [ "a Lead Engineer at Dhan AI,", "a Senior Software Engineer,", "a Photographer,", "an Open Source Contributer,", "a Tech Blogger,", "a Travel Influencer."],
       typeSpeed: 10,
-      backSpeed: 0,
+      backSpeed: 20,
       smartBackspace: true,
       fadeOut: true,
       loop: true,

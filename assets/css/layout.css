@@ -1,3 +1,82 @@
+/* --- Resume CTA Button Styles (moved from index.html) --- */
+.cta-btn.resume-cta {
+   padding: 10px 26px;
+   font-size: 16px;
+   font-weight: bold;
+   background: linear-gradient(90deg, #00c6ff 0%, #00b1c5 100%);
+   color: #fff;
+   border-radius: 32px;
+   text-decoration: none;
+   box-shadow: 0 6px 18px rgba(0,114,255,0.15);
+   letter-spacing: 0.5px;
+   margin-top: 10px;
+   transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.cta-btn.resume-cta:hover, .cta-btn.resume-cta:focus {
+   background: linear-gradient(90deg, #009cb8 0%, #00c6ff 100%);
+   color: #fff;
+   transform: scale(1.06) translateY(-2px);
+   box-shadow: 0 12px 32px rgba(0, 221, 255, 0.28);
+   text-decoration: none;
+}
+.cta-btn.resume-cta .fa-download {
+   margin-right: 12px;
+   font-size: 1.2em;
+   vertical-align: middle;
+   animation: bounce 1.2s infinite alternate;
+}
+@keyframes bounce {
+   0% { transform: translateY(0); }
+   100% { transform: translateY(-7px); }
+}
+/* --- Social CTA Button Styles (moved from index.html) --- */
+.cta-btn {
+   display: inline-block;
+   position: relative;
+   overflow: hidden;
+   z-index: 1;
+   text-decoration: none;
+   border: none;
+   cursor: pointer;
+   vertical-align: middle;
+   margin: 0 6px 10px 0;
+}
+.cta-btn.social-cta {
+   padding: 0;
+   width: 38px;
+   height: 38px;
+   border-radius: 50%;
+   font-size: 22px;
+   background: none;
+   box-shadow: none;
+   margin: 0;
+   color: #baf3f6;
+   transition: color 0.2s, transform 0.2s;
+}
+.cta-btn.social-cta i {
+   margin: 0;
+   font-size: 22px;
+   line-height: 38px;
+   text-align: center;
+   width: 32px;
+   height: 32px;
+   display: inline-block;
+   vertical-align: middle;
+}
+.cta-btn span, .cta-btn i {
+   position: relative;
+   z-index: 1;
+}
+.cta-btn.social-cta:hover, .cta-btn.social-cta:focus {
+   color: #00c6ff;
+   background: none;
+   transform: scale(1.25);
+   text-decoration: none;
+}
+@keyframes pulse-anim {
+   0% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+   100% { opacity: 0; transform: translate(-50%, -50%) scale(1.25); }
+}
 /*
 =====================================================================
 *   Ceevee v1.0 Layout Stylesheet
@@ -33,12 +112,9 @@ header {
    height: 800px;
    min-height: 500px;
    width: 100%;
-   background: #161415 url(../images/header13.jpg) no-repeat top center;
-   background-size: cover !important;
-	-webkit-background-size: cover !important;
+   background: #161415;
    text-align: center;
    overflow: hidden;
-
 }
 
 /* vertically center banner section */
@@ -123,7 +199,7 @@ header .scrolldown a {
    -o-transition: all .3s ease-in-out;
    transition: all .3s ease-in-out;
 }
-header .scrolldown a:hover { color: #F06000; }
+header .scrolldown a:hover { color: #00c6ff; }
 
 /* primary navigation
 --------------------------------------------------------------------- */
@@ -149,6 +225,15 @@ header .scrolldown a:hover { color: #F06000; }
    top: 0;
 }
 .opaque { background-color: #fff; }
+.opaque #nav a {
+   color: #222 !important;
+}
+.opaque #nav li.current a {
+   color: #00c6ff !important;
+}
+.opaque #nav a:hover {
+   color: #00c6ff !important;
+}
 
 /* hide toggle button */
 #nav-wrap > a.mobile-btn { display: none; }
@@ -178,7 +263,7 @@ ul#nav li a {
    line-height: 32px;
 	text-decoration: none;
    text-align: left;
-   color : black;
+   color : white;
 
 	-webkit-transition: color .2s ease-in-out;
 	-moz-transition: color .2s ease-in-out;
@@ -188,8 +273,8 @@ ul#nav li a {
 }
 
 ul#nav li a:active { background-color: transparent !important; }
-ul#nav li.current a { color: #F06000; }
-ul#nav li a:hover{color: #F06000;}
+ul#nav li.current a { color: #00c6ff; }
+ul#nav li a:hover{color: #00c6ff;}
 
 /* ------------------------------------------------------------------ */
 /* c. About Section
@@ -829,7 +914,7 @@ call-to-action .button {
     margin: 0 6px;
     display: inline-block;
     zoom: 1;
-    *display: inline;
+    display: inline;
 }
 .flex-control-paging li a {
     width: 12px;
@@ -1043,7 +1128,7 @@ footer .social-links li {
     margin: 0;
     padding: 0;
     margin-left: 42px;
-    color: #F06000;
+    color: #00c6ff;
 }
 
 footer .social-links li:first-child { margin-left: 0; }
