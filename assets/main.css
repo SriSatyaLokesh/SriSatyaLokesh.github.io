@@ -318,8 +318,15 @@ body.is-touch .cursor-blur {
 }
 
 @media (max-width: 480px) {
+    :root {
+        --text-massive: clamp(1.8rem, 8vw, 2.5rem);
+        --section-padding: 3rem;
+        --container-padding: 1rem;
+    }
+
     .massive-text {
         letter-spacing: -0.02em;
+        line-height: 1.1;
     }
 
     .hero-reveal-text {
