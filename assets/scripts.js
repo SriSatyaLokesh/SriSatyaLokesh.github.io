@@ -462,7 +462,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const recoNav = document.getElementById('reco-nav');
 
     if (recoQuote && recoNav) {
+        let currentRecoIndex = 0;
+
         function updateRecommendation(index) {
+            // Validate bounds
+            if (index < 0) index = recommendationsData.length - 1;
+            if (index >= recommendationsData.length) index = 0;
+
+            currentRecoIndex = index;
             const data = recommendationsData[index];
             const recoMain = document.querySelector('.reco-main');
             const itemsToAnimate = recoMain.querySelectorAll('.quote-icon, .active-quote, .active-info');
@@ -493,20 +500,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Update Nav
-            document.querySelectorAll('.reco-btn').forEach((btn, i) => {
+            // Update Nav Avatars
+            document.querySelectorAll('.avatar-btn').forEach((btn, i) => {
                 btn.classList.toggle('active', i === index);
             });
         }
 
-        // Initialize Nav
+        // Add Prev Button
+        const prevBtn = document.createElement('button');
+        prevBtn.className = 'reco-arrow-btn prev-btn';
+        prevBtn.innerHTML = '<i class="fas fa-arrow-left"></i>';
+        prevBtn.addEventListener('click', () => updateRecommendation(currentRecoIndex - 1));
+        recoNav.appendChild(prevBtn);
+
+        // Initialize Avatar Nav
         recommendationsData.forEach((reco, i) => {
             const btn = document.createElement('div');
-            btn.className = `reco-btn ${i === 0 ? 'active' : ''}`;
+            btn.className = `reco-btn avatar-btn ${i === 0 ? 'active' : ''}`;
             btn.innerHTML = `<img src="${reco.avatar}" alt="${reco.name}" class="reco-avatar">`;
             btn.addEventListener('click', () => updateRecommendation(i));
             recoNav.appendChild(btn);
         });
+
+        // Add Next Button
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'reco-arrow-btn next-btn';
+        nextBtn.innerHTML = '<i class="fas fa-arrow-right"></i>';
+        nextBtn.addEventListener('click', () => updateRecommendation(currentRecoIndex + 1));
+        recoNav.appendChild(nextBtn);
 
         // Set Initial Content
         const initialData = recommendationsData[0];
@@ -514,8 +535,6 @@ document.addEventListener('DOMContentLoaded', () => {
         recoName.innerHTML = `<a href="${initialData.linkedin}" target="_blank" class="reco-link">${initialData.name}</a>`;
         recoRole.innerText = initialData.role;
     }
-
-
 
     // Contact Section Glow Effect
     const contactSection = document.getElementById('contact');

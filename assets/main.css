@@ -1561,6 +1561,26 @@ body.is-touch .cursor-blur {
     object-fit: cover;
 }
 
+.reco-arrow-btn {
+    display: none;
+    /* Hidden on desktop */
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--fg);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.reco-arrow-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: scale(1.1);
+}
+
 @media (max-width: 992px) {
     .reco-layout {
         flex-direction: column;
@@ -1686,7 +1706,8 @@ html.lenis {
     .experience-heading .section-label,
     .projects-heading .section-label,
     .skills-heading .section-label,
-    .contact-heading .section-label {
+    .contact-heading .section-label,
+    .reco-heading .section-label {
         writing-mode: horizontal-tb;
         transform: none;
     }
@@ -1708,5 +1729,60 @@ html.lenis {
     .contact-content {
         padding-left: 0;
         width: 100%;
+    }
+}
+
+/* ============================================
+   MOBILE SPECIFIC REFINEMENTS
+   ============================================ */
+@media (max-width: 768px) {
+
+    /* Hide Social Sidebar on scroll by making it absolute to Hero */
+    .social-sidebar {
+        position: absolute;
+        top: 100vh;
+        transform: translateY(calc(-100% - 3rem));
+        bottom: auto;
+    }
+
+    /* Reduce About section typography */
+    .about-lead {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+    }
+
+    .about-body {
+        font-size: 0.85rem;
+    }
+
+    /* Hide About Profile Image */
+    .profile-img-container {
+        display: none !important;
+    }
+
+    /* Single column for skills */
+    .skills-content {
+        grid-template-columns: 1fr;
+    }
+
+    /* Prevent GET IN TOUCH text hover jumping on mobile */
+    .contact-massive .massive-link {
+        letter-spacing: 4px;
+        color: var(--accent);
+    }
+
+    /* Show carousel arrows and hide avatars */
+    .reco-arrow-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .reco-nav .avatar-btn {
+        display: none !important;
+    }
+
+    .reco-nav {
+        gap: 3rem;
+        justify-content: center;
     }
 }
