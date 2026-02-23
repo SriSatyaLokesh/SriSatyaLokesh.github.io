@@ -5,6 +5,14 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // ============================================
+    // -1. TOUCH DETECTION
+    // ============================================
+    const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
+    if (isTouch) {
+        document.body.classList.add('is-touch');
+    }
+
+    // ============================================
     // 0. LOGO NUMBER COUNTER REVOLVE EFFECT
     // ============================================
     const logoLink = document.querySelector('.nav-logo a');
@@ -108,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         blurYTo = gsap.quickTo(cursorBlur, "top", { duration: 0.4, ease: "power2" });
 
     window.addEventListener("mousemove", e => {
+        if (isTouch) return;
         xTo(e.clientX);
         yTo(e.clientY);
         blurXTo(e.clientX);
@@ -150,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (heroSection && heroWrapper && heroReveal && heroMain) {
         heroSection.addEventListener('mousemove', (e) => {
+            if (isTouch) return;
             const rect = heroWrapper.getBoundingClientRect();
             const relX = e.clientX - rect.left;
             const relY = e.clientY - rect.top;
