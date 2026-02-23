@@ -191,6 +191,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================
+    // 0.5 MOBILE NAVIGATION TOGGLE
+    // ============================================
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('nav-open');
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = navLinks.classList.contains('nav-open') ? 'hidden' : '';
+        });
+
+        // Close menu when a link is clicked
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('nav-open');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
+    // ============================================
     // 4. SCROLL ANIMATIONS (GSAP + ScrollTrigger)
     // ============================================
     gsap.registerPlugin(ScrollTrigger);
