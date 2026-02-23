@@ -449,6 +449,10 @@ body.is-touch .cursor-blur {
     .scroll-prompt {
         bottom: 1.5rem;
     }
+
+    .hero-resume-wrapper {
+        display: none !important;
+    }
 }
 
 .hero-sub-text {
