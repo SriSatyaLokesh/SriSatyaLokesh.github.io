@@ -1620,12 +1620,16 @@ body.is-touch .cursor-blur {
     }
 
     .active-quote {
-        font-size: 1.2rem;
+        font-size: 1rem;
         min-height: auto;
         word-wrap: break-word;
         word-break: break-word;
         width: 100%;
+        max-width: 28ch;
+        /* Restrict to approx 4-5 words per line */
         padding-right: 1rem;
+        margin: 0 auto 2rem 0;
+        /* Align left but allow natural wrapping */
     }
 
     .reco-main {
