@@ -1653,3 +1653,60 @@ html.lenis {
 .lenis.lenis-scrolling iframe {
     pointer-events: none;
 }
+
+/* ============================================
+   GLOBAL RESPONSIVE SECTION LAYOUTS
+   ============================================ */
+
+@media (max-width: 992px) {
+
+    .about-layout,
+    .experience-layout,
+    .projects-layout,
+    .skills-layout,
+    .contact-layout {
+        flex-direction: column;
+    }
+
+    .about-heading,
+    .experience-heading,
+    .projects-heading,
+    .skills-heading,
+    .contact-heading {
+        flex-direction: row;
+        writing-mode: horizontal-tb;
+        transform: none;
+        padding-right: 0;
+        padding-bottom: 2rem;
+        gap: 2rem;
+    }
+
+    /* Target the rotated text specifically */
+    .about-heading .section-label,
+    .experience-heading .section-label,
+    .projects-heading .section-label,
+    .skills-heading .section-label,
+    .contact-heading .section-label {
+        writing-mode: horizontal-tb;
+        transform: none;
+    }
+
+    .about-heading::after,
+    .experience-heading::after,
+    .projects-heading::after,
+    .skills-heading::after,
+    .contact-heading::after {
+        width: 100%;
+        max-width: 100px;
+        height: 1px;
+    }
+
+    .about-content,
+    .experience-content,
+    .projects-content,
+    .skills-content,
+    .contact-content {
+        padding-left: 0;
+        width: 100%;
+    }
+}
