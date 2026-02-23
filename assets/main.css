@@ -1200,16 +1200,13 @@ body.is-touch .cursor-blur {
     gap: 0.4rem;
 }
 
-/* Pill-shaped chips */
+/* Informational tags — hover effect visible but not clickable */
 .chip {
     display: inline-block;
     padding: 0.21rem 0.63rem;
-    /* Compact padding - increased 5% */
     font-size: 0.78rem;
-    /* Increased 5% */
     font-weight: 600;
     color: #ffffff;
-    /* pure white for contrast */
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 20px;
