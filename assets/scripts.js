@@ -1,5 +1,4 @@
 /* ============================================
-   MINH PHAM INSPIRED Interaction Logic - 2026
    Satya K - Lead Engineer
    ============================================ */
 
