@@ -510,7 +510,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevBtn = document.createElement('button');
         prevBtn.type = 'button';
         prevBtn.className = 'reco-arrow-btn prev-btn';
-        prevBtn.innerHTML = '<i class="fas fa-arrow-left"></i>';
+        prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
         prevBtn.addEventListener('click', (e) => {
             e.preventDefault();
             updateRecommendation(currentRecoIndex - 1);
@@ -530,7 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const nextBtn = document.createElement('button');
         nextBtn.type = 'button';
         nextBtn.className = 'reco-arrow-btn next-btn';
-        nextBtn.innerHTML = '<i class="fas fa-arrow-right"></i>';
+        nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
         nextBtn.addEventListener('click', (e) => {
             e.preventDefault();
             updateRecommendation(currentRecoIndex + 1);
