@@ -29,7 +29,10 @@
     box-sizing: border-box;
 }
 
-html,
+html {
+    width: 100%;
+}
+
 body {
     overflow-x: hidden;
     width: 100%;
@@ -547,6 +550,10 @@ body.is-touch .cursor-blur {
    ============================================ */
 
 .projects {
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
     padding: 8rem 0;
 }
 
@@ -671,10 +678,10 @@ body.is-touch .cursor-blur {
 
 .about {
     min-height: 100vh;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     padding: 6rem 0;
-    overflow: hidden;
 }
 
 .container {
@@ -834,6 +841,10 @@ body.is-touch .cursor-blur {
    ============================================ */
 
 .experience {
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
     padding: 8rem 0;
 }
 
@@ -1093,6 +1104,7 @@ body.is-touch .cursor-blur {
     padding: 4rem 0;
     background: var(--bg);
     min-height: 100vh;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
 }
@@ -1418,11 +1430,11 @@ body.is-touch .cursor-blur {
 .recommendations {
     padding: 12rem 0 5rem 0;
     /* Increased top padding to avoid nav */
-    height: 100vh;
+    min-height: 100vh;
+    box-sizing: border-box;
     /* Fit within screen */
     display: flex;
     align-items: center;
-    overflow: hidden;
     /* Prevent expansion */
 }
 
@@ -1469,6 +1481,7 @@ body.is-touch .cursor-blur {
 .reco-main {
     flex: 1;
     max-width: 900px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1603,17 +1616,22 @@ body.is-touch .cursor-blur {
     .reco-content {
         padding-left: 0;
         flex-direction: column;
+        width: 100%;
     }
 
     .active-quote {
         font-size: 1.2rem;
         min-height: auto;
         word-wrap: break-word;
+        word-break: break-word;
         width: 100%;
+        padding-right: 1rem;
     }
 
     .reco-main {
         width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .reco-nav {
