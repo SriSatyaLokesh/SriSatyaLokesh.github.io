@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "GenAI-Powered Development Acceleration Platform",
+    "description": "Built an internal platform leveraging GenAI to automate code generation, testing, and documentation. Reduced development cycle time by 30% across multiple teams.",
+    "tech": ["Python", "OpenAI API", "FastAPI", "React", "PostgreSQL"],
+    "architecture": "Microservices architecture with event-driven workflows, Redis caching, and async task processing",
+    "github": null,
+    "image": "genai-platform.jpg",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "SaaS Notification Platform",
+    "description": "Designed and delivered a multi-channel notification platform serving 8+ business units. Handles 100K+ daily notifications via email, SMS, push, and in-app channels.",
+    "tech": ["Node.js", "MongoDB", "Redis", "RabbitMQ", "AWS SES"],
+    "architecture": "Event-driven microservices with queue-based message delivery, retry mechanisms, and real-time analytics dashboard",
+    "github": null,
+    "image": "notification-platform.jpg",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "Enterprise Chatbot Ecosystem",
+    "description": "Developed intelligent chatbots using Rasa and Microsoft Bot Framework with NLP/NLU capabilities. Improved customer support automation by 40% and reduced response time significantly.",
+    "tech": ["Rasa", "Python", "Microsoft Bot Framework", "Docker", "Azure"],
+    "architecture": "Containerized NLU engine with intent classification, entity extraction, and dialogue management integrated with CRM systems",
+    "github": null,
+    "image": "chatbot-platform.jpg",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Salesforce Integration Hub",
+    "description": "Built a comprehensive integration layer connecting internal systems with Salesforce and Dynamics 365. Enabled seamless data synchronization and automated workflows.",
+    "tech": ["Python", "Salesforce API", "Dynamics 365", "FastAPI", "Celery"],
+    "architecture": "API gateway pattern with bidirectional sync, conflict resolution, and real-time webhook processing",
+    "github": null,
+    "image": "salesforce-hub.jpg",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "Operational Analytics Dashboards",
+    "description": "Created multiple interactive dashboards using Power BI and Plotly Dash for real-time operational insights. Enabled data-driven decision making across leadership.",
+    "tech": ["Python", "Plotly Dash", "Power BI", "SQL", "Pandas"],
+    "architecture": "ETL pipelines with incremental data refresh, cached aggregations, and responsive visualization layers",
+    "github": null,
+    "image": "analytics-dashboard.jpg",
+    "featured": false
+  },
+  {
+    "id": 6,
+    "title": "Vardhman Bot - Student Information System",
+    "description": "Developed a Telegram bot serving 400-500 students for checking attendance, marks, and results. Received wide appreciation and presented as best project in hackathon.",
+    "tech": ["Python", "Telegram Bot API", "MySQL", "Beautiful Soup"],
+    "architecture": "Web scraping with session management, scheduled data refresh, and conversational interface",
+    "github": "https://github.com/srisatyalokesh/vardhman-bot",
+    "image": "vardhman-bot.jpg",
+    "featured": false
+  }
+]

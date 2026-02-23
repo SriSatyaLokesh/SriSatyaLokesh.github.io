@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "text": "Build systems that scale, not just solutions that work.",
+    "category": "Engineering Philosophy"
+  },
+  {
+    "id": 2,
+    "text": "The best architecture is one that solves today's problems while anticipating tomorrow's challenges.",
+    "category": "System Design"
+  },
+  {
+    "id": 3,
+    "text": "Code is read far more often than it's written. Make it count.",
+    "category": "Code Quality"
+  },
+  {
+    "id": 4,
+    "text": "Leadership in engineering isn't about having all the answers—it's about asking the right questions.",
+    "category": "Leadership"
+  },
+  {
+    "id": 5,
+    "text": "Automation without understanding is just scheduled chaos.",
+    "category": "Automation & AI"
+  },
+  {
+    "id": 6,
+    "text": "Great products are built at the intersection of technical excellence and user empathy.",
+    "category": "Product Thinking"
+  }
+]

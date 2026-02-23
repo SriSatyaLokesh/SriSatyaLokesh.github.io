@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://srisatyalokesh.github.io/sitemap.xml

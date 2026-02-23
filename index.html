@@ -1,1040 +1,677 @@
-<!DOCTYPE html>
-<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+﻿<!DOCTYPE html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satya K | Lead Engineer & Architect</title>
+    <meta name="description"
+        content="Satya K is a Lead Engineer specializing in backend architecture, Python, Node.js, and scaling distributed systems. Building robust digital experiences since 2019.">
+    <meta name="keywords"
+        content="Satya K, Lead Engineer, Backend Architect, Python Developer, Node.js Developer, GenAI, Scalable Systems">
+    <meta name="author" content="Satya K">
+    <meta name="keywords"
+        content="satya K, sri satya lokesh, srisatyalokesh, senior software engineer, Lead engineer, backend architect, python developer, GenAI, system design">
 
-   <!--- Basic Page Needs
-   ================================================== -->
-	
-  <meta charset="utf-8">
-  <title>Sri Satya Lokesh</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="I'm a Lead Engineer specializing in backend architecture, Python/Node.js development, and GenAI-driven automation. I design scalable systems, deliver stakeholder-focused products, and improve engineering outcomes through strong execution and team leadership." />
-  <meta name="author" content="srisatyalokesh">
-  <meta name="keywords" content="satya K | sri satya lokesh karri | srisatyalokesh | srisatyalokeshkarri | senior software engineer | Lead engineer | karri sri satya lokesh | satyak | Dhan AI | dhan.ai" />
-  <!--Facebook and maximum sites-->
-  <meta property="og:title" content="Satya K" />
-  <meta property="og:image" content="https://srisatyalokesh.github.io/assets/images/header13.jpg" >
-  <meta property="og:description" content="Lead Engineer at Dhan-AI, Technical Architect, System Design expert, Senior Software Engineer, Senior Python developer" />
-  <meta property="og:url" content="https://srisatyalokesh.github.io" />
-  <meta property="og:type" content="portfolio" />
-  <meta property="og:author" content="Satya K">
-  <!--Twitter-->
-  <meta property="twitter:title" content="Satya K" />
-  <meta property="twitter:image" content="assets/images/me.jpg" />
-  <meta property="twitter:description" content="I'm a Lead Engineer specializing in backend architecture, Python/Node.js development, and GenAI-driven automation. I design scalable systems, deliver stakeholder-focused products, and improve engineering outcomes through strong execution and team leadership." />
-  <meta property="twitter:url" content="https://srisatyalokesh.github.io" />
-  <meta property="twitter:type" content="portfolio | blog" />
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@TechWithSatya" />
-  <meta name="twitter:creator" content="@TechWithSatya" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://srisatyalokesh.github.io/">
+    <meta property="og:title" content="Satya K - Lead Engineer & System Architect">
+    <meta property="og:description" content="Backend architecture specialist building scalable GenAI-driven systems">
+    <meta property="og:image" content="https://srisatyalokesh.github.io/assets/img/profile.png">
 
-   <!-- Mobile Specific Metas
-   ================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://srisatyalokesh.github.io/">
+    <meta property="twitter:title" content="Satya K - Lead Engineer">
+    <meta property="twitter:description"
+        content="Backend architecture specialist building scalable GenAI-driven systems">
+    <meta property="twitter:image" content="https://srisatyalokesh.github.io/assets/img/profile.png">
+    <link rel="canonical" href="https://srisatyalokesh.github.io/" />
+    <meta name="robots" content="index, follow">
 
-	<!-- CSS
-    ================================================== -->
-   <link rel="stylesheet" href="assets/css/default.css">
-	<link rel="stylesheet" href="assets/css/layout.css">
-   <link rel="stylesheet" href="assets/css/media-queries.css">
-   <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Satya K",
+      "url": "https://srisatyalokesh.github.io/",
+      "image": "https://srisatyalokesh.github.io/assets/img/profile.png",
+      "sameAs": [
+        "https://github.com/srisatyalokesh/",
+        "https://www.linkedin.com/in/srisatyalokesh/",
+        "https://twitter.com/TechWithSatya"
+      ],
+      "jobTitle": "Lead Engineer & Architect",
+      "knowsAbout": ["Python", "Node.js", "Backend Architecture", "GenAI", "Scalable Systems", "Conversational AI"]
+    }
+    </script>
 
-   <!-- Script
-   ================================================== -->
-	<script src="assets/js/modernizr.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/profile.png">
 
-   <!-- Favicons
-	================================================== -->
-	<link rel="shortcut icon" href="assets/images/Avatar-Maker.png" >
-    
-    <!-- fonts
-    ================================================== -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Allura' rel='stylesheet'>
-    
-   <!-- Particles.js (CDN) -->
-   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/main.css">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Fonts - Inter for clean, bold typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Smooth Scroll (Lenis) via CDN -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.20/dist/lenis.css">
+
+    <!-- Three.js (required by Vanta) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <!-- Vanta.js Fog -->
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
 </head>
 
 <body>
-<script>
-// Load particles.js with default config and rely on config for click/hover effects
-document.addEventListener('DOMContentLoaded', function() {
-   particlesJS.load('particles-js', 'assets/js/particlesjs-config.json');
-});
-</script>
 
-   <!-- Header
-   ================================================== -->
-   <header id="home">
+    <!-- Custom Cursor -->
+    <div id="cursor" class="cursor"></div>
+    <div id="cursor-blur" class="cursor-blur"></div>
 
-   <!-- Particles Background -->
-   <div id="particles-js" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;"></div>
+    <!-- Smooth Scroll Wrapper -->
+    <div class="content-wrapper">
 
-
-      <nav id="nav-wrap">
-
-         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
-
-         <ul id="nav" class="nav">
-            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
-            <li><a class="smoothscroll" href="#about">About</a></li>
-            <li><a class="smoothscroll" href="#experience">Experience</a></li>
-            <li><a class="smoothscroll" href="#skills">Skills</a></li>
-            <li><a class="smoothscroll" href="#projects">Projects</a></li>
-            
-            <li><a class="smoothscroll" href="#contact">Contact</a></li>
-         </ul> <!-- end #nav -->
-
-      </nav> <!-- end #nav-wrap -->
-
-   <div class="row banner" style="position:relative;z-index:1;color:#baf3f6;">
-         <div class="banner-text">
-            <h1 class="responsive-headline" style="color:#baf3f6;">I'm Satya K</h1>
-            
-            <h3>I'm <span class="typed"></span></h3>
-            <hr />
-            <ul class="social">
-                        <li><a href="https://www.facebook.com/techwithsatya" target="_blank" class="cta-btn social-cta"><span class="pulse"></span><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://twitter.com/TechWithSatya" target="_blank" class="cta-btn social-cta"><span class="pulse"></span><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/srisatyalokesh/" target="_blank" class="cta-btn social-cta"><span class="pulse"></span><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="https://www.instagram.com/srisatyalokesh/" target="_blank" class="cta-btn social-cta"><span class="pulse"></span><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="https://github.com/srisatyalokesh/" target="_blank" class="cta-btn social-cta"><span class="pulse"></span><i class="fa fa-github"></i></a></li>
-                        <li><a href="https://hackerrank.com/srisatyalokesh/" target="_blank" class="cta-btn social-cta"><span class="pulse"></span><i class="fa fa-code"></i></a></li>
-                        <li><a href="https://www.youtube.com/channel/UCUHT914N6EUO-L9DNjD3wdw" target="_blank" class="cta-btn social-cta"><span class="pulse"></span><i class="fa fa-youtube"></i></a></li>
-            </ul>
-                  <div style="margin-top: 24px;">
-                  <div style="margin-top: 28px; text-align:center;">
-                              <a href="assets/resume/Sri-Satya-Lokesh-K-Lead-Engineer-Resume.pdf" target="_blank" class="cta-btn resume-cta">
-                                 <span class="pulse"></span>
-                                 <i class="fa fa-download"></i> Download My Resume
-                              </a>
-                  </div>
-                  </div>
-         </div>
-      </div>
-
-                  <p class="scrolldown" style="position:absolute;left:50%;bottom:32px;transform:translateX(-50%);margin:0;z-index:2;">
-                      <a class="smoothscroll scrolldown-cta-btn" href="#about" style="position:relative;display:inline-block;background:none;border:none;box-shadow:none;">
-                               <svg class="down-arrow-outline" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#00c6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin:auto;">
-                                  <polyline points="16 28 24 36 32 28"/>
-                               </svg>
-                      </a>
-                  </p>
-            <style>
-               header { position: relative; }
-            .scrolldown-cta-btn {
-               display: inline-block;
-               font-size: 38px;
-               color: #00c6ff;
-               background: none;
-               border: none;
-               outline: none;
-               cursor: pointer;
-               position: relative;
-               z-index: 1;
-               transition: color 0.2s;
-            }
-            .scrolldown-cta-btn:hover, .scrolldown-cta-btn:focus {
-               color: #0072ff;
-               text-decoration: none;
-            }
-                              .scrolldown-cta-btn .down-arrow-outline {
-                                 animation: pulldown 2.4s cubic-bezier(.68,-0.55,.27,1.55) infinite;
-                                 display: inline-block;
-                              }
-                              @keyframes pulldown {
-                                 0% { transform: translateY(0); }
-                                 40% { transform: translateY(16px); }
-                                 60% { transform: translateY(0); }
-                                 100% { transform: translateY(0); }
-                              }
-            .scrolldown-cta-btn .pulse {
-               position: absolute;
-               left: 50%;
-               top: 50%;
-               width: 180%;
-               height: 180%;
-               background: radial-gradient(circle, #00c6ff33 0%, transparent 70%);
-               border-radius: 50%;
-               transform: translate(-50%, -50%);
-               z-index: 0;
-               animation: pulse-anim 1.8s infinite;
-               pointer-events: none;
-            }
-            @keyframes pulse-anim {
-               0% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
-               100% { opacity: 0; transform: translate(-50%, -50%) scale(1.25); }
-            }
-            @keyframes bounce {
-               0% { transform: translateY(0); }
-               100% { transform: translateY(-7px); }
-            }
-         </style>
-
-   </header> <!-- Header End -->
-
-
-   <!-- About Section
-   ================================================== -->
-   <section id="about">
-
-      <div class="row">
-
-         <div class="three columns">
-
-            <img class="profile-pic"  src="assets/images/profile.png" alt="" />
-
-         </div>
-
-         <div class="nine columns main-col">
-
-            <h2>About Me</h2>
-
-           <p> I am a Lead Engineer specializing in backend architecture, system design, and building scalable data-centric platforms that power real business impact. I lead complex technical initiatives end-to-end — translating stakeholder requirements into innovative and reliable product solutions. <br>
-
-My engineering expertise includes Python, Node.js, SQL/NoSQL, and event-driven microservices. I build high-performance APIs and full-stack features, while ensuring strong observability, security, and scalability. I also work closely with data engineering teams to enable analytics and automation through dashboards and structured data pipelines. <br>
-
-I have deep experience in conversational AI, developing enterprise chatbots using Rasa and Microsoft platforms with NLP/NLU to improve automation, efficiency, and user experience. Recently, I've been leveraging GenAI to accelerate development cycles and bring intelligence into product workflows. <br> 
-
-I've delivered multiple products — including a SaaS notification platform and Salesforce-integrated solutions — used across the organization. Beyond technology, I mentor and guide engineers, fostering a culture of accountability, growth, and engineering excellence.<br>
-
-<b>What I bring:</b>  <br> 
-• Backend Development & distributed systems design <br> 
-• Strong execution under fast-moving product goals <br> 
-• Hands-on development with leadership clarity <br> 
-• Alignment of architecture to business strategy <br> 
-• Innovation across automation, GenAI & data systems <br> 
-
-<b>Open to collaborating on impactful engineering challenges where architecture strength, performance, and product success truly matter.</b>
-            <br> <br> <span class="life_cycle" >&lt;EAT&gt; &nbsp; &lt;SLEEP&gt; &nbsp; &lt;CODE&gt; &nbsp; &lt;COFFEE&gt; &nbsp;  &lt;REPEAT/&gt;</span>
-              </p>  
-
-         </div> <!-- end .main-col -->
-
-      </div>
-       
-   </section> <!-- About Section End-->
-
-
-   <!-- Resume Section
-   ================================================== -->
-   <section id="resume">  
-
-      <!-- Work -------------------------------------------- -->
-      <div class="row work" id="experience">
-
-         <div class="three columns header-col">
-            <h1><span>Experience</span></h1>
-         </div>
-
-         <div class="nine columns main-col">
-
-            <div class="row item">
-               <div class="twelve columns">
-                  <h3>Lead Engineer @ Dhan AI</h3>
-                  <em class="date">June 2022 - Present</em></p>
-                  <p>
-                 <b>Core Ownership:</b>
-<ul style="list-style-type: disc; margin-left: 20px;">
-<li>Lead backend engineering across 8+ cross-functional projects, ensuring scalability, performance, and on-time delivery</li>
-<li>Design system architecture, distributed services, integration patterns, and deployment strategies</li>
-<li>Primary point of contact for stakeholder and client requirement management, converting business goals into engineering plans</li>
-</ul>
-
-<b>Key Contributions & Impact:</b>
-
-<ul style="list-style-type: disc; margin-left: 20px;">
-<li>Developed multiple data-driven dashboards using Power BI & Dash improving decision-making turnaround by 30%+</li>
-<li>Built scalable APIs and microservices in Python and Node.js powering internal capabilities and customer-facing products</li>
-
-<li>Enabled automation and smarter workflows by introducing GenAI-driven solutions and NLP/NLU enhancements</li>
-
-<li>Integrated systems with Salesforce and third-party services, reducing manual dependency and system hand-offs</li>
-
-<li>Mentored and trained 10+ engineers, accelerating delivery quality and project ownership across the team</li>
-</ul>
-
-<b>Tech & Tools:</b>
-Python, Node.js, SQL, NoSQL, Microservices, API Development, Full Stack Application Development, GenAI, Chatbot development, Rasa, Power BI, Scripting, System Design, JIRA, Confluence, Git, Github, Github actions, Linux, CI/CD, React Js, System integration with Salesforce, Dynamics 365, etc.
-                  </p>
-               </div>
-            </div> <!-- item end -->
-
-	   <div class="row item">
-               <div class="twelve columns">
-                  <h3>Software Development Engineer @ Dhan AI</h3>
-                  <p class="info"></p> <em class="date">April 2020 - June 2022</em></p>
-                  <p>
-                 <b>Core Work & Results</b>
-<ul style="list-style-type: disc; margin-left: 20px;">
-<li>Engineered enterprise-grade chatbots using Rasa and Microsoft Bot Framework (NLP + NLU), improving automation and customer interactions</li>
-<li>Built and deployed a SaaS-based generic notification platform, now used across business units for scalable alerts and messaging</li>
-<li>Delivered multiple data-centric applications using Python and Node.js, contributing to consistent client delivery success</li>
-<li>Created analytical dashboards with Power BI / Dash, enabling operational insights and better workflow visibility</li>
-<li>Worked with SQL & NoSQL data systems to support high-volume, real-time data use cases</li>
-<li>Additionally, I gained experience with Microsoft's chatbot building platform, further enhancing my skills in conversational AI. Throughout this role, I successfully delivered multiple projects, consistently meeting client expectations and contributing to the company's growth.</li>
-</ul>
-
-<b>Skills Built</b> : Chatbot development, Rasa, Microsoft bot framework, Google Dialog flow, Python Django, Flask, Fast API, Full-stack engineering, data analysis, integration development, agile delivery, production deployment workflows
-</ul>
-
-
-
-                  </p>
-               </div>
-            </div> <!-- item end -->
-		 
-           <div class="row item">
-               <div class="twelve columns">
-                  <h3>Synopsys</h3>
-                  <p class="info">Technical Intern - IT <span>&bull;</span> <em class="date">September 2019 - April 2020</em></p>
-		<p> Worked on Early Anomaly Detection and building dynamic Dashboards in Python.
-			Analyzing metric beats, building data sets, automation of tasks, application
-			development, other DevOps related programming tasks using Flask,
-			Pandas, Elastic Search, dash, plotly, NetMRI, etc
-                </p>
-               </div>
-            </div>  <!-- item end -->
-
-
-         </div> <!-- main-col end -->
-
-      </div> <!-- End Work -->
-
-       <!-- Education
-      ----------------------------------------------- -->
-      <div class="row education">
-
-         <div class="three columns header-col">
-            <h1><span>Education</span></h1>
-         </div>
-
-         <div class="nine columns main-col">
-
-            <div class="row item">
-
-               <div class="twelve columns">
-
-                  <h3>Bachelor's Degree</h3>
-                  <p class="info">Vardhaman college of Engg, Computer science, 8.9 <span>&bull;</span> <em class="date">June 2020</em></p>
-
-                  <p>
-                     During my college years, I focused on both academics and technical leadership. I consistently ranked among the top performers in development programs and earned multiple Best Project awards at hackathons and project expos. I founded a student tech club where I trained 100+ students in Python, Linux, Power BI, and open-source tools, helping many build strong job-ready skills.<br>
-I also developed Vardhman bot, a Telegram-based student information bot that enabled 400-500 students to quickly check their attendance, marks, and results. The project received wide appreciation and was presented as best project in hackathon. Beyond academics, I actively mentored juniors and continued supporting the student community as a contributing alumnus
-                  </p>
-
-               </div>
-
-            </div> <!-- item end -->
-
-            <div class="row item">
-
-               <div class="twelve columns">
-
-                  <h3>Intermediate</h3>
-                  <p class="info">Resonance Junior College, M.P.C, 96.5% <span>&bull;</span> <em class="date">March 2016</em></p>
-
-                  <p>
-               
-                  </p>
-
-               </div>
-
-            </div> <!-- item end -->
-             
-              <div class="row item">
-
-               <div class="twelve columns">
-
-                  <h3>School</h3>
-                  <p class="info">Divya High School, S.S.C, 9.0 <span>&bull;</span> <em class="date">March 2014</em></p>
-
-                  <p>
-                  
-                  </p>
-
-               </div>
-
-            </div> <!-- item end -->
-
-             
-         </div> <!-- main-col end -->
-
-      </div> <!-- End Education -->
-
-
-</section> <!-- Resume Section End-->
-      
-
-
-
-   <section id="skills" style="background:#181b1f;padding:64px 0 48px 0;">
-      <div class="row skills">
-         <div class="three columns header-col">
-            <h1 style="color:white"><span>Skills</span></h1>
-         </div>
-         <div class="nine columns main-col" style="max-width:900px;margin:0 auto;">
-            <div class="row item">
-               <div class="twelve columns">
-                  <p style="color:white;font-size:1.25em;margin-top:0;"><span><b>Programming Languages</b></span></p>
-                  <div style="display:flex;flex-wrap:wrap;gap:18px 28px;margin-bottom:18px;">
-                     <img src="https://img.shields.io/badge/-Python-05122A?style=flat&logo=python" alt="Python" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-TypeScript-05122A?style=flat&logo=typescript" alt="TypeScript" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Node.Js-05122A?style=flat&logo=Node.Js" alt="TypeScript" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Java-05122A?style=flat&logo=coffeescript&logoColor=FFA518" alt="Java" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-C-05122A?style=flat&logo=C&logoColor=A8B9CC" alt="C" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Ruby-05122A?style=flat&logo=ruby&logoColor=red" alt="Ruby" style="height:26px;"/>
-                  </div>
-                  <p style="color:white;font-size:1.25em;margin-top:28px;"><span><b>AI / Chatbot / Automation</b></span></p>
-                  <div style="display:flex;flex-wrap:wrap;gap:18px 28px;margin-bottom:18px;">
-                     <img src="https://img.shields.io/badge/-Rasa-05122A?style=flat&logo=chatbot" alt="Rasa" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Bot_Framework-05122A?style=flat&logo=probot" alt="Bot Framework" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Dialog_Flow-05122A?style=flat&logo=dialogflow" alt="Dialogflow" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-RiveScript-05122A?style=flat&logo=dependabot" alt="RiveScript" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-ChatGPT-05122A?style=flat&logo=dependabot" alt="ChatGPT" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Perplexity-05122A?style=flat&logo=perplexity" alt="Perplexity" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Cursor-05122A?style=flat&logo=Chatbot" alt="Cursor" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-CoPilot-05122A?style=flat&logo=githubcopilot" alt="CoPilot" style="height:26px;"/>
-                  </div>
-                  <p style="color:white;font-size:1.25em;margin-top:28px;"><span><b>Web &amp; Data Frameworks</b></span></p>
-                  <div style="display:flex;flex-wrap:wrap;gap:18px 28px;margin-bottom:18px;">
-                     <img src="https://img.shields.io/badge/-Django-05122A?style=flat&logo=django" alt="Django" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Flask-05122A?style=flat&logo=flask" alt="Flask" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-FastAPI-05122A?style=flat&logo=fastapi" alt="FastAPI" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Dash-05122A?style=flat&logo=dash" alt="Dash" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Pandas-05122A?style=flat&logo=pandas" alt="Pandas" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-ExpressJS-05122A?style=flat&logo=typescript" alt="Node.js" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-GraphQL-05122A?style=flat&logo=graphql" alt="Flask" style="height:26px;"/>
-                  </div>
-                  <p style="color:white;font-size:1.25em;margin-top:28px;"><span><b>Frontend &amp; Markup</b></span></p>
-                  <div style="display:flex;flex-wrap:wrap;gap:18px 28px;margin-bottom:18px;">
-                     <img src="https://img.shields.io/badge/-HTML-05122A?style=flat&logo=HTML5" alt="HTML" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-CSS-05122A?style=flat&logo=CSS3&logoColor=1572B6" alt="CSS" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript" alt="JavaScript" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Jekyll-05122A?style=flat&logo=jekyll" alt="Jekyll" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Markdown-05122A?style=flat&logo=markdown" alt="Markdown" style="height:26px;"/>
-                  </div>
-                  <p style="color:white;font-size:1.25em;margin-top:28px;"><span><b>Databases &amp; Search</b></span></p>
-                  <div style="display:flex;flex-wrap:wrap;gap:18px 28px;margin-bottom:18px;">
-                     <img src="https://img.shields.io/badge/-MySQL-05122A?style=flat&logo=mysql&logoColor=FFA518" alt="MySQL" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-MS_SQL-05122A?style=flat&logo=Salla" alt="MSSQL" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-PostgreSQL-05122A?style=flat&logo=postgresql" alt="PostgreSQL" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-SQLite-05122A?style=flat&logo=sqlite" alt="SQLite" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Elastic_Search-05122A?style=flat&logo=elastic&logoColor=skyblue" alt="Elastic Search" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-MongoDB-05122A?style=flat&logo=mongodb" alt="MongoDB" style="height:26px;"/>
-                  </div>
-                  <p style="color:white;font-size:1.25em;margin-top:28px;"><span><b>DevOps &amp; Tools</b></span></p>
-                  <div style="display:flex;flex-wrap:wrap;gap:18px 28px;margin-bottom:18px;">
-                     <img src="https://img.shields.io/badge/-Git-05122A?style=flat&logo=git" alt="Git" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github" alt="GitHub" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-GitLab-05122A?style=flat&logo=gitlab" alt="GitLab" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Power_BI-05122A?style=flat&logo=hyperskill" alt="Power BI" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Docker-05122A?style=flat&logo=docker" alt="Docker" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Kubernetes-05122A?style=flat&logo=kubernetes" alt="Kubernetes" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Kafka-05122A?style=flat&logo=apachekafka" alt="Kafka" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Kibana-05122A?style=flat&logo=kibana" alt="Kibana" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Postman-05122A?style=flat&logo=postman" alt="Postman" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Linux-05122A?style=flat&logo=linux" alt="Linux" style="height:26px;"/>
-                     <img src="https://img.shields.io/badge/-Redhat-05122A?style=flat&logo=redhat" alt="Redhat" style="height:26px;"/>
-                  </div>
-               </div>
+        <!-- Top Navigation -->
+        <nav class="nav-minimal">
+            <div class="nav-logo">
+                <a href="#">I'M SATYA K</a>
             </div>
-         </div>
-      </div>
-   </section>
+            <ul class="nav-links">
+                <li><a href="#about" data-text="ABOUT"><span>ABOUT</span></a></li>
+                <li><a href="#work" data-text="EXPERIENCE"><span>EXPERIENCE</span></a></li>
+                <li><a href="#skills" data-text="SKILLS"><span>SKILLS</span></a></li>
+                <li><a href="#projects" data-text="PROJECTS"><span>PROJECTS</span></a></li>
+                <li><a href="#contact" data-text="CONTACT"><span>CONTACT</span></a></li>
+            </ul>
+        </nav>
 
+        <!-- Social Sidebar -->
+        <aside class="social-sidebar">
+            <div class="social-links-vertical">
+                <a href="https://github.com/srisatyalokesh/" target="_blank" title="GitHub"
+                    aria-label="Github Profile"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/srisatyalokesh/" target="_blank" title="LinkedIn"
+                    aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/TechWithSatya" target="_blank" title="Twitter"
+                    aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/srisatyalokesh/" target="_blank" title="Instagram"
+                    aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UCUHT914N6EUO-L9DNjD3wdw" target="_blank" title="YouTube"
+                    aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a>
+            </div>
+        </aside>
 
-   <!-- Portfolio Section
-   ================================================== -->
-   <section id="portfolio">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-text-wrapper">
+                    <svg style="position: absolute; width: 0; height: 0;">
+                        <defs>
+                            <mask id="hero-mask" maskUnits="userSpaceOnUse">
+                                <rect width="10000" height="10000" x="-5000" y="-5000" fill="white" />
+                                <circle id="mask-circle" cx="50%" cy="50%" r="0" fill="black" />
+                            </mask>
+                        </defs>
+                    </svg>
+                    <div class="hero-main-text">
+                        <h1 class="massive-text">
+                            <span class="line">DESIGNING</span>
+                            <span class="line accent">& DEVELOPING</span>
+                            <span class="line accent">SCALABLE</span>
+                            <span class="line">APPLICATIONS</span>
+                        </h1>
+                    </div>
+                    <!-- Hidden Reveal Mirror -->
+                    <div class="hero-reveal-text" aria-hidden="true">
+                        <div class="massive-text">
+                            <span class="line accent">TRAVELLING</span>
+                            <span class="line">& EXPLORING</span>
+                            <span class="line">THE WORLD</span>
+                            <span class="line accent">AROUND ME</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-sub-text">
+                    <p>SINCE 2019</p>
+                </div>
+            </div>
+            <div class="hero-resume-wrapper">
+                <a href="assets/resume/Sri-Satya-Lokesh-K-Lead-Engineer-Resume.pdf" target="_blank"
+                    class="hero-resume-link resume-no-expand">
+                    <i class="fas fa-file-pdf"></i> RESUME
+                </a>
+            </div>
+            <div class="scroll-prompt">
+                <a href="#about" class="scroll-down-wrapper">
+                    <span>SCROLL DOWN</span>
+                    <i class="fas fa-chevron-down scroll-arrow"></i>
+                </a>
+            </div>
+        </section>
 
-      <div class="row" id="projects">
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-layout">
+                    <div class="about-heading">
+                        <h2 class="section-label">ABOUT ME</h2>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p class="about-lead">
+                                I'm a <strong>Lead Engineer</strong> with <span class="accent-text">7+ years</span> of
+                                experience building scalable platforms, AI-driven automation, and the kind of systems
+                                that
+                                enterprises bet their business on.
+                            </p>
+                            <p class="about-body">
+                                What I bring to the table isn't just code - it's <strong>end-to-end ownership</strong>.
+                                From
+                                requirement gathering and PRD creation, through sprint planning and architecture design,
+                                to
+                                writing production-grade code, generating test cases, and deploying to customers - I
+                                operate
+                                as a single-handed force. I've worn every hat: <span class="accent-text">Full-Stack
+                                    Developer</span>, <span class="accent-text">Technical Architect</span>, <span
+                                    class="accent-text">Backend Engineer</span>, <span
+                                    class="accent-text">Forward-Deployed
+                                    Engineer</span>, and <span class="accent-text">Conversational AI Developer</span>.
+                            </p>
+                            <p class="about-body">
+                                I build intelligent systems - from multi-tenant chatbots using <strong>Rasa, Dialogflow
+                                    &
+                                    Microsoft Bot Framework</strong> to modern <span class="accent-text">Agentic
+                                    AI</span>
+                                workflows and autonomous AI agents. My expertise in <strong>NLP, intent resolution, and
+                                    conversational design</strong> has cut support call volumes by <span
+                                    class="accent-text">40%</span> and transformed how enterprises interact with their
+                                customers.
+                            </p>
+                            <p class="about-body">
+                                I've mentored <span class="accent-text">18+ engineers</span> - 10 of whom earned
+                                promotions
+                                -
+                                championing <strong>clean code practices</strong>, system design thinking, and
+                                engineering
+                                excellence. I architect for <span class="accent-text">99%+ uptime</span>, optimize for
+                                <span class="accent-text">30%+ performance gains</span>, and build with a philosophy
+                                that
+                                every line of code should be maintainable, testable, and production-ready.
+                            </p>
+                        </div>
+                        <div class="about-side-actions">
+                            <div class="profile-img-container">
+                                <img src="assets/img/profile.png" alt="Satya K" class="profile-img">
+                            </div>
+                            <a href="assets/resume/Sri-Satya-Lokesh-K-Lead-Engineer-Resume.pdf" target="_blank"
+                                class="resume-btn resume-no-expand">
+                                <i class="fas fa-file-download"></i> DOWNLOAD RESUME
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-         <div class="twelve columns collapsed">
+        <!-- Experience Section -->
+        <section id="work" class="experience">
+            <div class="container">
+                <div class="experience-layout">
+                    <div class="experience-heading">
+                        <h2 class="section-label">EXPERIENCE</h2>
+                    </div>
+                    <div class="experience-content">
+                        <div class="exp-timeline">
 
-            <h1>Check Out Some of My Projects.</h1>
+                            <!-- Company Group: Dhan AI -->
+                            <div class="company-group">
+                                <div class="company-header">
+                                    <span class="company-name">DHAN AI</span>
+                                    <span class="company-period">Apr 2020 - Present</span>
+                                </div>
 
-            <!-- portfolio-wrapper -->
-           
-            <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
+                                <!-- Role 1: Lead Engineer (Current) -->
+                                <div class="exp-entry exp-current">
+                                    <div class="exp-marker">
+                                        <div class="exp-dot"></div>
+                                        <div class="exp-line"></div>
+                                    </div>
+                                    <div class="exp-card">
+                                        <div class="exp-meta">
+                                            <span class="exp-date">Jun 2022 - Present</span>
+                                            <span class="exp-badge">NOW</span>
+                                        </div>
+                                        <h4 class="exp-role">Lead Engineer</h4>
+                                        <p class="exp-preview">Architecting high-scale platforms supporting 350K+ live
+                                            customers across major telecom operations, leading cross-team initiatives
+                                            across 15+ microservices with 99%+ uptime.</p>
+                                        <div class="exp-details">
+                                            <ul>
+                                                <li>Architected and developed high-scale platforms using
+                                                    <strong>Node.js, TypeScript & Python</strong>, supporting 350K+ live
+                                                    customers.
+                                                </li>
+                                                <li>Improved system performance and API responsiveness by <span
+                                                        class="accent-text">30%</span>, enabling faster digital
+                                                    interactions.</li>
+                                                <li>Led cross-team engineering across <span class="accent-text">15+
+                                                        microservices</span>, ensuring 99%+ uptime.</li>
+                                                <li>Mentored <span class="accent-text">18+ engineers</span> (10+
+                                                    promoted) with structured code reviews and best practices.</li>
+                                                <li>Owned delivery for <span class="accent-text">4+ enterprise
+                                                        products</span> with on-time sprint completion.</li>
+                                                <li>Built secure integrations with <strong>Kafka, Salesforce, Dynamics
+                                                        365 & Firebase Auth</strong>.</li>
+                                            </ul>
+                                        </div>
+                                        <button class="exp-toggle" onclick="toggleExp(this)">Read More <i
+                                                class="fas fa-chevron-down"></i></button>
+                                    </div>
+                                </div>
 
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-   
-                     <a href="#modal-01" title="">
-                        <img alt="" src="assets/images/portfolio/tweetment.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-                               <h5>Tweetment</h5>
-                              <p>Twitter Sentiment Analysis</p>
+                                <!-- Promotion indicator -->
+                                <div class="promotion-ladder">
+                                    <span class="promotion-badge">↑ PROMOTED</span>
+                                </div>
+
+                                <!-- Role 2: SDE -->
+                                <div class="exp-entry">
+                                    <div class="exp-marker">
+                                        <div class="exp-dot"></div>
+                                        <div class="exp-line"></div>
+                                    </div>
+                                    <div class="exp-card">
+                                        <div class="exp-meta">
+                                            <span class="exp-date">Apr 2020 - Jun 2022</span>
+                                        </div>
+                                        <h4 class="exp-role">Software Development Engineer</h4>
+                                        <p class="exp-preview">Built multi-tenant conversational AI platforms using
+                                            Rasa, Dialogflow & Bot Framework, reducing support calls by 40% and
+                                            engineering secure healthcare integrations.</p>
+                                        <div class="exp-details">
+                                            <ul>
+                                                <li>Developed conversational AI solutions using <strong>Rasa, Dialogflow
+                                                        & Microsoft Bot Framework</strong>, reducing support calls by
+                                                    <span class="accent-text">40%</span>.
+                                                </li>
+                                                <li>Engineered secure healthcare integrations (EHR, appointments,
+                                                    authentication).</li>
+                                                <li>Built foundational chatbot dashboards & automation flows, still used
+                                                    as core product components.</li>
+                                                <li>Improved chatbot accuracy through training data analytics and
+                                                    continuous NLP tuning.</li>
+                                            </ul>
+                                        </div>
+                                        <button class="exp-toggle" onclick="toggleExp(this)">Read More <i
+                                                class="fas fa-chevron-down"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Company Divider -->
+                            <div class="company-divider"></div>
+
+                            <!-- Company Group: Synopsys -->
+                            <div class="company-group">
+                                <div class="company-header">
+                                    <span class="company-name">SYNOPSYS</span>
+                                    <span class="company-period">Sep 2019 - Apr 2020</span>
+                                </div>
+
+                                <div class="exp-entry">
+                                    <div class="exp-marker">
+                                        <div class="exp-dot"></div>
+                                    </div>
+                                    <div class="exp-card">
+                                        <div class="exp-meta">
+                                            <span class="exp-date">Sep 2019 - Apr 2020</span>
+                                        </div>
+                                        <h4 class="exp-role">Python Developer Intern</h4>
+                                        <p class="exp-preview">Built automated data ingestion APIs feeding system
+                                            metrics into Elasticsearch and developed real-time Plotly Dash & Flask
+                                            performance dashboards.</p>
+                                        <div class="exp-details">
+                                            <ul>
+                                                <li>Built automated data ingestion APIs collecting system metrics from
+                                                    distributed servers into <strong>Elasticsearch</strong>.</li>
+                                                <li>Developed <strong>Plotly Dash & Flask dashboards</strong> for
+                                                    real-time hardware performance analysis.</li>
+                                                <li>Collaborated with hardware and system engineering teams for seamless
+                                                    data integration.</li>
+                                            </ul>
+                                        </div>
+                                        <button class="exp-toggle" onclick="toggleExp(this)">Read More <i
+                                                class="fas fa-chevron-down"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <div class="skills-layout">
+                    <div class="skills-heading">
+                        <h2 class="section-label">SKILLS</h2>
+                    </div>
+                    <div class="skills-content">
+
+                        <div class="skill-category" data-category="programming">
+                            <h4 class="category-label">Programming Languages</h4>
+                            <div class="skill-chips">
+                                <span class="chip highlight">Python</span>
+                                <span class="chip highlight">Node.js</span>
+                                <span class="chip highlight">TypeScript</span>
+                                <span class="chip">JavaScript</span>
+                                <span class="chip">C</span>
+                                <span class="chip highlight">Java</span>
+                                <span class="chip">Shell Scripting</span>
+                                <span class="chip highlight">DSA</span>
                             </div>
                         </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-   
-                  </div>
-                </div> <!-- item end -->
-   
-   
 
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-02" title="">
-                        <img alt="" src="assets/images/portfolio/telegrambot.png">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Vardhaman Telegram Bot</h5>
-                              <p>Studenet Engnaging Telegram bot</p>
-          					   </div>
+                        <div class="skill-category" data-category="ai">
+                            <h4 class="category-label">Data Engineering & Conversational AI</h4>
+                            <div class="skill-chips">
+                                <span class="chip highlight">Rasa</span>
+                                <span class="chip highlight">Microsoft Bot Framework</span>
+                                <span class="chip">Dialogflow</span>
+                                <span class="chip highlight">Custom NLP Components</span>
+                                <span class="chip">Data Clustering</span>
+                                <span class="chip highlight">Data Analysis</span>
+                                <span class="chip">Machine Learning</span>
+                                <span class="chip highlight">Gen AI</span>
+                                <span class="chip highlight">Agentic AI</span>
+                            </div>
                         </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-                </div> <!-- item end -->
-                
-
-          	   <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-03" title="">
-                        <img alt="" src="assets/images/portfolio/hcr.png">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>HCR</h5>
-                              <p>Handwritten character recognition</p>
-          					   </div>
+                        <div class="skill-category" data-category="tools">
+                            <h4 class="category-label">AI & Agentic Tools</h4>
+                            <div class="skill-chips">
+                                <span class="chip highlight">ChatGPT</span>
+                                <span class="chip highlight">Claude Code</span>
+                                <span class="chip highlight">Cursor</span>
+                                <span class="chip highlight">Antigravity</span>
+                                <span class="chip highlight">Prompt Engineering</span>
+                                <span class="chip highlight">Agentic AI Development</span>
+                                <span class="chip">Power BI</span>
+                                <span class="chip">n8n</span>
+                            </div>
                         </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
 
-                  </div>
-          		</div> <!-- item end -->
-
-                <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-04" title="">
-                        <img alt="" src="assets/images/portfolio/vrgame.png">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Maze Runner</h5>
-                              <p>Web VR Game</p>
-          					   </div>
+                        <div class="skill-category" data-category="web">
+                            <h4 class="category-label">API & Web Development</h4>
+                            <div class="skill-chips">
+                                <span class="chip highlight">REST</span>
+                                <span class="chip highlight">GraphQL</span>
+                                <span class="chip">Express.js</span>
+                                <span class="chip highlight">Django</span>
+                                <span class="chip highlight">Flask</span>
+                                <span class="chip highlight">FastAPI</span>
+                                <span class="chip">Supabase</span>
+                                <span class="chip">React.js</span>
+                                <span class="chip">HTML</span>
+                                <span class="chip">CSS</span>
+                                <span class="chip">jQuery</span>
+                            </div>
                         </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
 
-                  </div>
-          		</div> <!-- item end -->
-                <hr />
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-05" title="">
-                        <img alt="" src="assets/images/portfolio/aadhar.jpeg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5> Surveillance using Aadhar</h5>
-                              <p>Paper presentation in HTML about Aadhar</p>
-          					   </div>
+                        <div class="skill-category" data-category="database">
+                            <h4 class="category-label">Database Management</h4>
+                            <div class="skill-chips">
+                                <span class="chip highlight">MySQL</span>
+                                <span class="chip highlight">MSSQL</span>
+                                <span class="chip highlight">PostgreSQL</span>
+                                <span class="chip highlight">MongoDB</span>
+                                <span class="chip">NoSQL</span>
+                                <span class="chip">Elasticsearch</span>
+                                <span class="chip highlight">Redis</span>
+                                <span class="chip highlight">Firebase</span>
+                            </div>
                         </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
 
-                  </div>
-                </div> <!-- item end -->
-                
-                <div class="columns portfolio-item">
-                     <div class="item-wrap">
-   
-                        <a href="#modal-06" title="">
-                           <img alt="" src="assets/images/portfolio/newsBuddy2.png">
-                           <div class="overlay">
-                              <div class="portfolio-item-meta">
-                                  <h5>NewsBuddy</h5>
-                                 <p>Students News feed Application</p>
-                               </div>
-                           </div>
-                           <div class="link-icon"><i class="icon-plus"></i></div>
-                        </a>
-   
-                     </div>
-                   </div> <!-- item end -->
-   
-                
-                
-                
-                  <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-07" title="">
-                        <img alt="" src="assets/images/portfolio/photography.jpeg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Man with 3 eyes</h5>
-                              <p>Photography</p>
-          					   </div>
+                        <div class="skill-category" data-category="devops">
+                            <h4 class="category-label">DevOps & Deployment</h4>
+                            <div class="skill-chips">
+                                <span class="chip highlight">Docker</span>
+                                <span class="chip">Jenkins</span>
+                                <span class="chip highlight">Kafka</span>
+                                <span class="chip">Kibana</span>
+                                <span class="chip">Grafana</span>
+                                <span class="chip highlight">Git</span>
+                                <span class="chip">GitHub</span>
+                                <span class="chip">GitLab</span>
+                                <span class="chip">Postman</span>
+                                <span class="chip">Linux</span>
+                                <span class="chip">Windows</span>
+                                <span class="chip">macOS</span>
+                            </div>
                         </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
 
-                  </div>
-          		</div>  <!-- item end -->
 
-              
 
-              
-
-                <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-08" title="">
-                        <img alt="" src="assets/images/portfolio/gitlab.jpeg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>GitLab</h5>
-                              <p>My First Gitlab projects Repository</p>
-          					   </div>
+                        <div class="skill-category" data-category="design">
+                            <h4 class="category-label">Design & Multimedia</h4>
+                            <div class="skill-chips">
+                                <span class="chip">Figma</span>
+                                <span class="chip highlight">Canva</span>
+                                <span class="chip">Photoshop</span>
+                                <span class="chip highlight">Lightroom</span>
+                                <span class="chip">Illustrator</span>
+                                <span class="chip highlight">Blender</span>
+                                <span class="chip highlight">Photography</span>
+                                <span class="chip highlight">Audacity</span>
+                            </div>
                         </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-            
-               
-             
-
-            </div> <!-- portfolio-wrapper end -->
-
-         </div> <!-- twelve columns end -->
 
 
-         <!-- Modal Popup
-	      --------------------------------------------------------------- -->
-
-         <div id="modal-01" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="assets/images/portfolio/modals/tweetment.jpeg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Tweetment</h4>
-			      <p>Analyses real time tweets from the twitter and categorizes them into positive,negative and neutral. In addition to the Traditional command prompt result a well constructed pie chart with better look and feel is drawn here which can make the sense for naive users also.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Data Analysis, Web Apps</span>
-		      </div>
-
-            <div class="link-box">
-                  <a href="https://tweetment.herokuapp.com/" target="_blank">Details</a> &nbsp;
-               <a href="https://github.com/SriSatyaLokesh/Tweetment" target="_blank">Code</a>
-		         <a class="popup-modal-dismiss">Close</a>
+                    </div>
+                </div>
             </div>
-         </div><!-- modal-01 End -->
+        </section>
 
-            <div id="modal-02" class="popup-modal mfp-hide">
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="projects-layout">
+                    <div class="projects-heading">
+                        <h2 class="section-label">PROJECTS</h2>
+                    </div>
+                    <div class="projects-content">
 
-                  <img class="scale-with-grid" src="assets/images/portfolio/modals/telegram bot.png" alt="" />
-      
-                  <div class="description-box">
-                     <h4>Student Telegram bot</h4>
-                     <p>A Telegram bot for student engangment and simplifying the tasks done by students in day to day life in colllge website.</p>
-                     <span class="categories"><i class="fa fa-tag"></i>Chat bots, AI, Automation</span>
-                  </div>
-      
-                  <div class="link-box">
-                     <a href="https://t.me/vardhamanbot" target="_blank">Details</a> &nbsp;
-                     <a href="https://github.com/puneethkanna/vardhamantelebot" target="_blank">Code</a>
-                     <a class="popup-modal-dismiss">Close</a>
-                  </div>
-      
-               </div><!-- modal-06 End -->
-          
-          
-         <div id="modal-03" class="popup-modal mfp-hide">
+                        <!-- Project 1 -->
+                        <div class="proj-card">
+                            <div class="proj-number">01</div>
+                            <div class="proj-body">
+                                <h4 class="proj-title">Customer Experience Platform</h4>
+                                <p class="proj-role">Lead Engineer & Solution Architect</p>
+                                <div class="proj-stack">
+                                    <span class="chip highlight">Node.js</span>
+                                    <span class="chip highlight">TypeScript</span>
+                                    <span class="chip highlight">Python</span>
+                                    <span class="chip">Kafka</span>
+                                    <span class="chip">SQL</span>
+                                    <span class="chip">NoSQL</span>
+                                    <span class="chip">Firebase</span>
+                                    <span class="chip">Dynamics 365</span>
+                                </div>
+                                <p class="proj-preview">Modernized enterprise CXP platform with 15+ microservices
+                                    enabling onboarding, billing, payments & order lifecycle operations. Improved API
+                                    response times by 30%.</p>
+                                <div class="proj-details">
+                                    <ul>
+                                        <li>Modernized enterprise CXP platform with <strong>15+ microservices</strong>
+                                            enabling onboarding, billing, payments & order lifecycle.</li>
+                                        <li>Improved API response times by <span class="accent-text">30%</span> via
+                                            TypeScript migration & optimized service orchestration.</li>
+                                        <li>Engineered unified portals for <strong>Customers, Enterprise, Admin, Sales &
+                                                Support</strong> teams, improving assistance workflows and resolution
+                                            speed.</li>
+                                        <li>Delivered analytics dashboards driving <strong>data-backed decision
+                                                making</strong>.</li>
+                                        <li>Integrated with <strong>Salesforce & Dynamics 365</strong> and secure
+                                            Firebase RBAC for enterprise identity control.</li>
+                                    </ul>
+                                </div>
+                                <button class="exp-toggle" onclick="toggleExp(this)">Read More <i
+                                        class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
 
-		      <img class="scale-with-grid" src="assets/images/portfolio/modals/hcr.jpeg" alt="HCR" />
+                        <!-- Project 2 -->
+                        <div class="proj-card">
+                            <div class="proj-number">02</div>
+                            <div class="proj-body">
+                                <h4 class="proj-title">Event-Driven Notification Platform</h4>
+                                <p class="proj-role">Lead Engineer & Technical Architect</p>
+                                <div class="proj-stack">
+                                    <span class="chip highlight">TypeScript</span>
+                                    <span class="chip highlight">Kafka</span>
+                                    <span class="chip">PostgreSQL</span>
+                                    <span class="chip">MongoDB</span>
+                                    <span class="chip">Dynamics 365</span>
+                                    <span class="chip">Kibana</span>
+                                </div>
+                                <p class="proj-preview">Architected a high-availability, event-driven notification
+                                    system supporting millions of annual events with 98%+ delivery SLA across SMS,
+                                    Email, Push & WhatsApp.</p>
+                                <div class="proj-details">
+                                    <ul>
+                                        <li>Architected a <strong>high-availability, event-driven</strong> notification
+                                            system supporting millions of annual events with <span
+                                                class="accent-text">98%+ delivery SLA</span>.</li>
+                                        <li>Built automated & scheduled multi-channel delivery (<strong>SMS, Email,
+                                                Push, WhatsApp</strong>) with intelligent routing via Kafka.</li>
+                                        <li>Delivered observability dashboards for delivery performance, message
+                                            tracking & operational analytics.</li>
+                                        <li>Led core development & continuous enhancements for <span
+                                                class="accent-text">2.5 years</span>, ensuring scalability &
+                                            cross-platform adoption.</li>
+                                    </ul>
+                                </div>
+                                <button class="exp-toggle" onclick="toggleExp(this)">Read More <i
+                                        class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
 
-		      <div class="description-box">
-			      <h4>Handwriiten Character Recognition</h4>
-			      <p> Handwriting recognition has been one of the active and challenging research areas in the field of image processing and pattern recognition.Based on Machine learning recognises 26 alphabets for English, 10 digits for Numeric data. Now we are going to focus on Telugu Characrter recognition</p>
-               <span class="categories"><i class="fa fa-tag"></i>Machine Learning, Web Apps</span>
-		      </div>
+                        <!-- Project 3 -->
+                        <div class="proj-card">
+                            <div class="proj-number">03</div>
+                            <div class="proj-body">
+                                <h4 class="proj-title">Multi-Tenant Chatbot Automation Platform</h4>
+                                <p class="proj-role">Core Engineer</p>
+                                <div class="proj-stack">
+                                    <span class="chip highlight">Rasa</span>
+                                    <span class="chip highlight">Python</span>
+                                    <span class="chip">Django</span>
+                                    <span class="chip">FastAPI</span>
+                                    <span class="chip">Bot Framework</span>
+                                    <span class="chip">OAuth</span>
+                                    <span class="chip">Power BI</span>
+                                </div>
+                                <p class="proj-preview">Designed and implemented an enterprise-grade Conversational AI
+                                    platform enabling rapid chatbot deployment across healthcare & telecom — reducing
+                                    hospital call center load by 40%.</p>
+                                <div class="proj-details">
+                                    <ul>
+                                        <li>Designed an <strong>enterprise-grade Conversational AI platform</strong>
+                                            enabling rapid chatbot deployment across healthcare & telecom before
+                                            LLM-based automation emerged.</li>
+                                        <li>Delivered secure, scalable digital assistance — from appointment scheduling
+                                            to medical report access, medication guidance & real-time care status.</li>
+                                        <li>Reduced hospital call center load by <span class="accent-text">40%</span>
+                                            through intelligent self-service chatbot automation.</li>
+                                        <li>Integrated <strong>Rasa & Bot Framework</strong> for custom NLU
+                                            implementation and superior intent recognition.</li>
+                                    </ul>
+                                </div>
+                                <button class="exp-toggle" onclick="toggleExp(this)">Read More <i
+                                        class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
 
-            <div class="link-box">
-               <a href="http://team2.swecha.io/charrecognition/views/" target="_blank">Details</a> &nbsp;
-                <a href="https://code.swecha.org/team2/charrecognition/tree/master/" target="_blank">Code</a>
-		      <a class="popup-modal-dismiss">Close</a>
+                    </div>
+                </div>
             </div>
+        </section>
 
-	      </div><!-- modal-01 End -->
-
-         <div id="modal-04" class="popup-modal mfp-hide">
-
-               <img class="scale-with-grid" src="assets/images/portfolio/modals/vrgameplay.jpg" alt="" />
-   
-               <div class="description-box">
-                  <h4>Maze Runner VR Game</h4>
-                  <p>This is an WebVR based game where users can jump into the virtually created environment to run through mazes(polygons).</p>
-                  <span class="categories"><i class="fa fa-tag"></i>VR, Gaming</span>
-               </div>
-   
-               <div class="link-box">
-                     <a href="https://srisatyalokesh.github.io/mazerunner" target="_blank">Details</a> &nbsp;
-                  <a href="https://github.com/SriSatyaLokesh/mazerunner" target="_blank">Code</a>
-                  <a class="popup-modal-dismiss">Close</a>
-               </div>
-   
-            </div><!-- modal-04 End -->
-         
-
-         
-         <div id="modal-05" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="assets/images/portfolio/modals/aadhar.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Presentation on Aadhar Data Leaks using impress.js</h4>
-			      <p>Yes! Aadhar is breach of everyone's privacy. Aadhar has been linked to everything in way that one can easily segregate people based on different classifications. This presentation shows how Aadhar is dangerous to everyone's privacy.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Presentations, Web Design</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="http://srisatyalokesh.swecha.io/slides/aadhar.html"  target="_blank">Details</a> &nbsp;
-                  <a href="https://code.swecha.org/SriSatyaLokesh/srisatyalokesh.swecha.io/tree/master/slides"  target="_blank">Code</a>
-		         <a class="popup-modal-dismiss">Close</a>
+        <!-- Recommendations Section -->
+        <section id="recommendations" class="recommendations">
+            <div class="container">
+                <div class="reco-layout">
+                    <div class="reco-heading">
+                        <h2 class="section-label">RECOMMENDATIONS</h2>
+                    </div>
+                    <div class="reco-content">
+                        <div class="reco-main">
+                            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                            <h3 class="active-quote" id="active-reco-quote"></h3>
+                            <div class="active-info">
+                                <h4 id="active-reco-name"></h4>
+                                <p id="active-reco-role"></p>
+                            </div>
+                        </div>
+                        <div class="reco-nav" id="reco-nav">
+                            <!-- Avatars will be injected by JS -->
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-	      </div><!-- modal-05 End -->
-
-         <div id="modal-06" class="popup-modal mfp-hide">
-
-               <img class="scale-with-grid" src="assets/images/portfolio/modals/newsbuddy.jpeg" alt="" />
-   
-               <div class="description-box">
-                  <h4>NewsBuddy</h4>
-                     <p>A college News Web based Application which will help students to know every information what's happening in the college.Even Students can intreact with Teachers to ask quries. A college Chat Bot will there to help outsiders to know about the college. All the events which are going to held in college will be posted in the home page.</p>
-                  <span class="categories"><i class="fa fa-tag"></i>Web Development,Social Networks</span>
-               </div>
-   
-               <div class="link-box">
-                  <a href="http://srisatyalokesh.swecha.io/NewsBuddy/"  target="_blank">Details</a> &nbsp;
-                   <a href="https://code.swecha.org/SriSatyaLokesh/srisatyalokesh.swecha.io/tree/master/NewsBuddy/"  target="_blank">Code</a>
-                <a class="popup-modal-dismiss">Close</a>
-               </div>
-   
-            </div><!-- modal-06 End -->
-        
-
-         
-
-            <div id="modal-07" class="popup-modal mfp-hide">
-
-               <img class="scale-with-grid" src="assets/images/portfolio/modals/photography.jpeg" alt="" />
-   
-               <div class="description-box">
-                  <h4>Man with 3 eyes</h4>
-                  <p>This is my photography page. Still I'm in Learning Stage of photography but I'm good at applying what I have known. You can check the Pictures I have captured and you can read the real life stories of the people in pictures.</p>
-                  <span class="categories"><i class="fa fa-tag"></i>Photography</span>
-               </div>
-   
-               <div class="link-box">
-                  <a href="https://www.instagram.com/man_with_3_eyes/"  target="_blank">Details</a>
-                  <a class="popup-modal-dismiss">Close</a>
-               </div>
-   
-            </div><!-- modal-07 End -->
-
-            <div id="modal-08" class="popup-modal mfp-hide">
-
-                  <img class="scale-with-grid" src="assets/images/portfolio/modals/gitlab.png" alt="GitLab" />
-      
-                  <div class="description-box">
-                     <h4>GitLab Repository</h4>
-                     <p>GitLab is a web-based Git-repository manager with wiki, issue-tracking and CI/CD pipelines features, using an open-source license, developed by GitLab Inc.
-                        <br>
-                            All projects sofar I have done are open source You can download and develop them.
-                        </p>
-                     <span class="categories"><i class="fa fa-tag"></i>Projects</span>
-                  </div>
-      
-                  <div class="link-box">
-                     <a href="https://gitlab.com"  target="_blank">Details</a> &nbsp;
-                      <a href="https://code.swecha.org/SriSatyaLokesh/srisatyalokesh.swecha.io/tree/master"  target="_blank">Code</a>
-                  <a class="popup-modal-dismiss">Close</a>
-                  </div>
-      
-               </div><!-- modal-08 End -->
-      
-
-	    
-
-         
-
-
-      </div> <!-- row End -->
-
-   </section> <!-- Portfolio Section End-->
-
-
-
-
-   <!-- Testimonials Section
-   ================================================== -->
-   <section id="testimonials">
-
-      <div class="text-container">
-
-         <div class="row">
-
-            <div class="two columns header-col">
-
-               <h1><span>Recommendations</span></h1>
-
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-layout">
+                    <div class="contact-heading">
+                        <h2 class="section-label">CONTACT</h2>
+                    </div>
+                    <div class="contact-content">
+                        <p class="contact-sub">HAVE A PROJECT IN MIND?</p>
+                        <div class="contact-massive">
+                            <a href="mailto:srisatyalokeshk2@gmail.com" class="massive-link">GET IN TOUCH</a>
+                        </div>
+                        <div class="contact-social-links">
+                            <a href="https://www.linkedin.com/in/srisatyalokesh/" target="_blank" class="reco-link"
+                                aria-label="LinkedIn Profile">LINKEDIN</a>
+                            <a href="https://github.com/SriSatyaLokesh" target="_blank" class="reco-link"
+                                aria-label="Github Profile">GITHUB</a>
+                            <a href="https://www.instagram.com/srisatyalokesh/" target="_blank" class="reco-link"
+                                aria-label="Instagram Profile">INSTAGRAM</a>
+                            <a href="mailto:srisatyalokeshk2@gmail.com" target="_blank" class="reco-link"
+                                aria-label="Send Email">EMAIL ME</a>
+                        </div>
+                        <div class="contact-actions" style="margin-top: 3rem;">
+                            <a href="assets/resume/Sri-Satya-Lokesh-K-Lead-Engineer-Resume.pdf" target="_blank"
+                                class="resume-btn resume-no-expand">
+                                <i class="fas fa-file-invoice"></i> VIEW RESUME
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="contact-glow"></div>
+        </section>
 
-            <div class="ten columns flex-container">
+    </div>
 
-               <div class="flexslider">
-
-                  <ul class="slides">
-
-                     <li>
-                        <blockquote>
-                           <p>I had the pleasure of working with Satya while supporting the same client engagement. He is a highly skilled and dependable engineer with deep expertise in Node.js, Python, and scalable systems. Satya consistently delivers high-quality solutions, documents robust architecture, and produces clear design/flow diagrams that make complex systems easy to understand. He collaborates seamlessly across teams and brings strong ownership and professionalism to every project.
-                           </p>
-                           <cite>Manisha safaya - Technical Specialist @ Tech Mahindra</cite>
-                        </blockquote>
-                     </li> <!-- slide ends -->
-
-                     <li>
-                        <blockquote>
-                           <p>I have worked with Sri Satya on Commercial NDS project at Ziply.  His knowledge and expertise have been key to our progress and development.
-                           </p>
-                           <cite>Chad baumann - Systems Project Manager @ Ziply Fiber</cite>
-                        </blockquote>
-                     </li> <!-- slide ends -->
-
-                     <li>
-                        <blockquote>
-                           <p>Satya is extremely knowledgeable and helpful in all avenues. He makes projects easier to complete and ensures that the project is done correctly and on time. 
-                           </p>
-                           <cite>katy McKay - Director, IT Operations @ Ziply Fiber</cite>
-                        </blockquote>
-                     </li> <!-- slide ends -->
-
-                     <li>
-                        <blockquote>
-                           <p>I had the pleasure of collaborating with Satya on a research project about chatbots. I was highly impressed by his technical expertise on chatbot development as well as his broad awareness on issues that affect deployment of chatbots in various setups/environments. When it comes to chatbot projects, I would not hesitate to recommend Satya to any team.
-                           </p>
-                           <cite>Tendai Makasi - Business Analyst @ Western Wealth</cite>
-                        </blockquote>
-                     </li> <!-- slide ends -->
-
-                     <li>
-                        <blockquote>
-                           <p>Satya was a key member for several application developments at Ziply that were directly enhancing and impacting customer experience. I strongly recommend Satya.
-                           </p>
-                           <cite>Manjunath S - Senior Engineer @ Ziply Fiber</cite>
-                        </blockquote>
-                     </li> <!-- slide ends -->
-
-                     <li>
-                        <blockquote>
-                           <p>Lokesh is very hard-working and dedicated to his work. He is self-motivated, talented and good at Software Development. Lokesh is wonderful to work with and I have collaborated with him on several projects. He is a quick-learner and an inspiring team player. I would highly recommend him.
-                           </p>
-                           <cite>Riya Punjabi - Agentic AI Manager @ Synopsys</cite>
-                        </blockquote>
-                     </li> <!-- slide ends -->
-
-                  </ul>
-
-               </div> <!-- div.flexslider ends -->
-
-            </div> <!-- div.flex-container ends -->
-
-         </div> <!-- row ends -->
-
-       </div>  <!-- text-container ends -->
-
-   </section> <!-- Testimonials Section End-->
-
-
-   <!-- Contact Section
-   ================================================== -->
-   <section id="contact">
-
-         <div class="row section-head">
-
-            <div class="two columns header-col">
-
-               <h1><span>Get In Touch.</span></h1>
-
-            </div>
-
-            <div class="ten columns">
-
-                  <p class="lead"> You can contact from the following form very soon.<br>
-                      But for now please ping me using the contact details provided.
-                  </p>
-
-            </div>
-
-         </div>
-
-         <div class="row">
-
-            <div class="eight columns">
-
-               <!-- form -->
-               <form action="" method="post" id="contactForm" name="contactForm">
-					<fieldset>
-
-                  <div>
-						   <label for="contactName">Name <span class="required">*</span></label>
-						   <input type="text" value="" size="35" id="contactName" name="contactName">
-                  </div>
-
-                  <div>
-						   <label for="contactEmail">Email <span class="required">*</span></label>
-						   <input type="text" value="" size="35" id="contactEmail" name="contactEmail">
-                  </div>
-
-                  <div>
-						   <label for="contactSubject">Subject</label>
-						   <input type="text" value="" size="35" id="contactSubject" name="contactSubject">
-                  </div>
-
-                  <div>
-                     <label for="contactMessage">Message <span class="required">*</span></label>
-                     <textarea cols="50" rows="15" id="contactMessage" name="contactMessage"></textarea>
-                  </div>
-
-                  <div>
-                     <button class="submit">Submit</button>
-                     <span id="image-loader">
-                        <img alt="" src="assets/images/loader.gif">
-                     </span>
-                  </div>
-
-					</fieldset>
-				   </form> <!-- Form End -->
-
-               <!-- contact-warning -->
-               <div id="message-warning"> Error </div>
-               <!-- contact-success -->
-				   <div id="message-success">
-                  <i class="fa fa-check"></i>Your message was sent, thank you!<br>
-				   </div>
-
-            </div>
-
-
-            <aside class="four columns footer-widgets">
-
-               <div class="widget widget_contact">
-
-					   <h4>Contact</h4>
-					   <p class="address">
-						   K Sri Satya Lokesh<br>
-						   Lead Engineer at Dhan AI<br>
-						   Hyderabad<br>
-                           Telangana, India<br>
-						   <span>9703189959</span> <br>
-						  
-                           <span><a href="mailto:srisatyalokesh@duck.com"  target="_blank">srisatyalokesh@duck.com</a></span>
-						   <span><a href="https://telegram.dog/SriSatyaLokesh"  target="_blank">https://t.me/SriSatyaLokesh</a></span>
-					   </p>
-
-				   </div>
-
-           <div class="widget widget_tweets">
-                  <h4 class="widget-title">Latest Tweets</h4>
-                  <ul id="twitter">
-                     <li>
-                        <span style="color:white">
-                        Before was was was, Was was Is.  <br>
-                        <a href="https://twitter.com/CodeWithSatya/status/1199979138695581697"  target="_blank">http://t.co/CgThYuILs</a>
-                        
-                        <br><b><a href="#">3 Days Ago</a></b>
-			</span>
-                     </li>
-                     <li>
-                        <span style="color:white">
-                        Having Ex-Amazon, Ex-Google will add more weight to your resume than having 3 or 4 degrees these days.
-				<br>
-                        <a href="https://twitter.com/CodeWithSatya/status/1166185776054325248"  target="_blank">http://t.co/OkyRvFeQw</a>
-                        
-                        <br><b><a href="#">5 Days Ago</a></b>
-			</span>
-                     </li> 
-                  </ul>
-		         </div>
-
-            </aside>
-
-      </div>
-
-   </section> <!-- Contact Section End-->
-
-
-   <!-- footer
-   ================================================== -->
-   <footer>
-
-      <div class="row">
-
-         <div class="twelve columns">
-
-            <ul class="social-links">
-               <li><a href="https://www.facebook.com/techwithsatya" target="_blank"><i class="fa fa-facebook"></i></a></li>
-               <li><a href="https://twitter.com/TechWithSatya" target="_blank"><i class="fa fa-twitter"></i></a></li>
-               <li><a href="https://www.linkedin.com/in/srisatyalokesh/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-               <li><a href="https://www.instagram.com/srisatyalokesh/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-               <li><a href="https://github.com/srisatyalokesh" target="_blank"><i class="fa fa-github"></i></a></li>
-               <li><a href="https://hackerrank.com/srisatyalokesh/" target="_blank"><i class="fa fa-code"></i></a></li>
-               <li><a href="https://sourcerer.io/srisatyalokesh" target="_blank"><i class="fas fa-chart-line"></i></a></li>
-            </ul>
-             
-
-         </div>
-
-         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
-
-      </div>
-
-   </footer> <!-- Footer End-->
-
-   <!-- Java Script
-   ================================================== -->
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-   <script>window.jQuery || document.write('<script src="assets/js/jquery-1.10.2.min.js"><\/script>')</script>
-   <script type="text/javascript" src="assets/js/jquery-migrate-1.2.1.min.js"></script>
-
-   <!-- Global site tag (gtag.js) - Google Analytics -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159911333-1"></script>
-   <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-159911333-1');
-   </script>
-
-   <script src="assets/js/jquery.flexslider.js"></script>
-   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-   <script src="assets/js/waypoints.js"></script>
-   <script src="assets/js/jquery.fittext.js"></script>
-   <script src="assets/js/magnific-popup.js"></script>
-   <script src="assets/js/init.js"></script>
-   <script src="assets/js/typed/typed.js"></script>
-
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="assets/scripts.js"></script>
 </body>
 
 </html>

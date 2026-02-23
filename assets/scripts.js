@@ -1,0 +1,490 @@
+/* ============================================
+   MINH PHAM INSPIRED Interaction Logic - 2026
+   Satya K - Lead Engineer
+   ============================================ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ============================================
+    // 0. LOGO NUMBER COUNTER REVOLVE EFFECT
+    // ============================================
+    const logoLink = document.querySelector('.nav-logo a');
+    if (logoLink) {
+        const originalText = "I'M  SATYA  K"; // Use literal for safety
+        const digits = "0123456789";
+
+        logoLink.addEventListener('mouseenter', () => {
+            let iterations = 0;
+            const interval = setInterval(() => {
+                logoLink.innerHTML = originalText.split("")
+                    .map((char, index) => {
+                        if (index < iterations || char === " ") return char;
+                        const randomDigit = digits[Math.floor(Math.random() * 10)];
+                        return `<span class="logo-digit">${randomDigit}</span>`;
+                    })
+                    .join("");
+
+                if (iterations >= originalText.length) {
+                    clearInterval(interval);
+                    logoLink.innerText = originalText;
+                }
+                iterations += 1 / 3;
+            }, 30);
+        });
+
+        logoLink.addEventListener('mouseleave', () => {
+            logoLink.innerText = originalText;
+        });
+    }
+
+
+    // ============================================
+    // 0b. VANTA FOG BACKGROUND
+    // ============================================
+    if (typeof VANTA !== 'undefined') {
+        VANTA.FOG({
+            el: '#home',
+            THREE: THREE,
+            mouseControls: true,
+            touchControls: false,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            highlightColor: 0x3a1200,  // Very dim burnt orange — barely visible glow
+            midtoneColor: 0x1a0800,    // Near-black dark orange
+            lowlightColor: 0x000000,   // Pure black
+            baseColor: 0x000000,       // Pure black base
+            blurFactor: 0.75,          // Higher blur = softer, more diffused wisps
+            speed: 2.60,
+            zoom: 1.60,
+        });
+    }
+
+    // ============================================
+    // 1. LENIS SMOOTH SCROLL INITIALIZATION
+    // ============================================
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        orientation: 'vertical',
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Integrate Lenis with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+
+    // Smooth scroll for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(anchor.getAttribute('href'));
+            if (target) {
+                lenis.scrollTo(target, { duration: 1.5 });
+            }
+        });
+    });
+
+    // ============================================
+    // 2. CUSTOM CURSOR WITH LAG (GSAP)
+    // ============================================
+    const cursor = document.getElementById('cursor');
+    const cursorBlur = document.getElementById('cursor-blur');
+    const heroText = document.querySelector('.massive-text');
+
+    // QuickSetter for performance
+    const xTo = gsap.quickTo(cursor, "left", { duration: 0.1, ease: "power3" }),
+        yTo = gsap.quickTo(cursor, "top", { duration: 0.1, ease: "power3" });
+
+    const blurXTo = gsap.quickTo(cursorBlur, "left", { duration: 0.4, ease: "power2" }),
+        blurYTo = gsap.quickTo(cursorBlur, "top", { duration: 0.4, ease: "power2" });
+
+    window.addEventListener("mousemove", e => {
+        xTo(e.clientX);
+        yTo(e.clientY);
+        blurXTo(e.clientX);
+        blurYTo(e.clientY);
+
+        // Update Hero Reveal Mask
+        if (heroText) {
+            const rect = heroText.getBoundingClientRect();
+            const relX = ((e.clientX - rect.left) / rect.width) * 100;
+            const relY = ((e.clientY - rect.top) / rect.height) * 100;
+
+            // Set CSS Variable for clip-path or update property directly
+            heroText.style.setProperty('--mask-x', `${relX}%`);
+            heroText.style.setProperty('--mask-y', `${relY}%`);
+        }
+    });
+
+    // Cursor hover effects
+    const interactiveElements = document.querySelectorAll('a, .timeline-item');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            if (!el.classList.contains('resume-no-expand')) {
+                gsap.to(cursor, { scale: 4, backgroundColor: 'rgba(255, 92, 0, 0.2)', duration: 0.3 });
+                gsap.to(cursorBlur, { scale: 1.5, opacity: 0.3, duration: 0.3 });
+            }
+        });
+        el.addEventListener('mouseleave', () => {
+            gsap.to(cursor, { scale: 1, backgroundColor: '#FF5C00', duration: 0.3 });
+            gsap.to(cursorBlur, { scale: 1, opacity: 1, duration: 0.3 });
+        });
+    });
+
+    // ============================================
+    // 3. HERO REVEAL MOUSE INTERACTION
+    // ============================================
+    const heroSection = document.querySelector('.hero');
+    const heroWrapper = document.querySelector('.hero-text-wrapper');
+    const heroReveal = document.querySelector('.hero-reveal-text');
+    const heroMain = document.querySelector('.hero-main-text');
+
+    if (heroSection && heroWrapper && heroReveal && heroMain) {
+        heroSection.addEventListener('mousemove', (e) => {
+            const rect = heroWrapper.getBoundingClientRect();
+            const relX = e.clientX - rect.left;
+            const relY = e.clientY - rect.top;
+
+            // heroReveal is position:fixed → needs VIEWPORT coords (clientX/Y)
+            heroReveal.style.setProperty('--mask-size', '300px');
+            heroReveal.style.setProperty('--mask-pos-x', e.clientX + 'px');
+            heroReveal.style.setProperty('--mask-pos-y', e.clientY + 'px');
+
+            // heroMain is inside the wrapper → needs RELATIVE coords
+            heroMain.style.setProperty('--mask-size', '300px');
+            heroMain.style.setProperty('--mask-pos-x', relX + 'px');
+            heroMain.style.setProperty('--mask-pos-y', relY + 'px');
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+            [heroReveal, heroMain].forEach(el => {
+                el.style.setProperty('--mask-size', '0px');
+            });
+        });
+    }
+
+    // ============================================
+    // 4. SCROLL ANIMATIONS (GSAP + ScrollTrigger)
+    // ============================================
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fade in sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        gsap.from(section, {
+            opacity: 0,
+            y: 100,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: section,
+                start: 'top 80%',
+                end: 'top 50%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+    });
+
+    // About pillars stagger
+    gsap.from('.about-pillar', {
+        opacity: 0,
+        y: 50,
+        stagger: 0.2,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+            trigger: '.about-grid',
+            start: 'top 70%'
+        }
+    });
+
+    // Timeline items reveal
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(item => {
+        gsap.from(item, {
+            x: -50,
+            opacity: 0,
+            duration: 0.8,
+            scrollTrigger: {
+                trigger: item,
+                start: 'top 90%'
+            }
+        });
+    });
+
+    // ============================================
+    // 5. EXPERIENCE SECTION (Expand/Collapse + Scroll Reveal)
+    // ============================================
+
+    // Expand/Collapse toggle for experience details (GSAP animated)
+    window.toggleExp = function (btn) {
+        const details = btn.previousElementSibling;
+        const isExpanded = btn.classList.contains('active');
+
+        if (isExpanded) {
+            // Collapse: fade out items then shrink
+            const items = details.querySelectorAll('li, .exp-env');
+            gsap.to(items, {
+                opacity: 0,
+                y: -10,
+                duration: 0.2,
+                stagger: 0.03,
+                onComplete: () => {
+                    gsap.to(details, {
+                        height: 0,
+                        duration: 0.4,
+                        ease: 'power2.inOut'
+                    });
+                }
+            });
+            btn.innerHTML = 'Read More <i class="fas fa-chevron-down"></i>';
+            btn.classList.remove('active');
+        } else {
+            // Expand: grow height then stagger-reveal items
+            const items = details.querySelectorAll('li, .exp-env');
+            gsap.set(items, { opacity: 0, y: 15 });
+
+            gsap.to(details, {
+                height: 'auto',
+                duration: 0.6,
+                ease: 'power2.inOut',
+                onComplete: () => {
+                    gsap.to(items, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.3,
+                        stagger: 0.05,
+                        ease: 'power2.out'
+                    });
+                }
+            });
+            btn.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+            btn.classList.add('active');
+        }
+    };
+
+    // Animate experience cards on scroll
+    gsap.utils.toArray('.exp-entry').forEach((entry, i) => {
+        gsap.from(entry, {
+            opacity: 0,
+            x: -30,
+            duration: 0.6,
+            delay: i * 0.1,
+            scrollTrigger: {
+                trigger: entry,
+                start: 'top 85%',
+            }
+        });
+    });
+
+    // Counter scramble effect for company names (same as hero name)
+    function scrambleText(element) {
+        const originalText = element.dataset.text || element.innerText;
+        element.dataset.text = originalText;
+        const digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let iterations = 0;
+
+        const interval = setInterval(() => {
+            element.innerHTML = originalText.split("")
+                .map((char, index) => {
+                    if (index < iterations || char === " ") return char;
+                    const randomChar = digits[Math.floor(Math.random() * digits.length)];
+                    return `<span style="color:var(--accent);opacity:0.6">${randomChar}</span>`;
+                })
+                .join("");
+
+            if (iterations >= originalText.length) {
+                clearInterval(interval);
+                element.innerText = originalText;
+            }
+            iterations += 1 / 2;
+        }, 35);
+    }
+
+    // Trigger on scroll + hover for company names
+    document.querySelectorAll('.company-name').forEach(name => {
+        // On scroll into view
+        ScrollTrigger.create({
+            trigger: name,
+            start: 'top 85%',
+            onEnter: () => scrambleText(name),
+            once: true
+        });
+
+        // On hover
+        name.addEventListener('mouseenter', () => scrambleText(name));
+    });
+
+    // ============================================
+    // 6. SKEWMORPHIC TILT FOR PROJECTS
+    // ============================================
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = (y - centerY) / 15;
+            const rotateY = (centerX - x) / 15;
+
+            gsap.to(card, {
+                rotateX: rotateX,
+                rotateY: rotateY,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+        });
+
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                rotateX: 0,
+                rotateY: 0,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+        });
+    });
+
+    // 7. SKILLS REVEAL (Removed per user request - staying static for visibility)
+
+    // Recommendations Carousel Logic
+    const recommendationsData = [
+        {
+            name: "Chad Baumann",
+            role: "Systems Project Manager @ Ziply Fiber",
+            quote: "I have worked with Sri Satya on Commercial NDS project at Ziply. His knowledge and expertise have been key to our progress and development. He is a great asset to the team.",
+            avatar: "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix&mouth=variant05,variant25,variant28&hair=short01,short02&hairColor=2c1b18",
+            linkedin: "https://www.linkedin.com/in/chadbaumann/"
+        },
+        {
+            name: "Manisha Safaya",
+            role: "Technical Specialist @ Tech Mahindra | Backend Lead Architect",
+            quote: "I had the pleasure of working with Satya while supporting the same client engagement. He is a highly skilled and dependable engineer with deep expertise in Node.js, Python, and scalable systems. Satya consistently delivers high-quality solutions, documents robust architecture, and produces clear design/flow diagrams that make complex systems easy to understand.",
+            avatar: "https://api.dicebear.com/7.x/adventurer/svg?seed=Ariel&mouth=variant01,variant30&hair=long01,long05&hairColor=2c1b18",
+            linkedin: "https://www.linkedin.com/in/manishasafaya/"
+        },
+        {
+            name: "Manjunath S",
+            role: "Senior Engineer @ Ziply",
+            quote: "Satya was a key member for several application developments at Ziply that were directly enhancing and impacting customer experience. I strongly recommend Satya.",
+            avatar: "https://api.dicebear.com/7.x/adventurer/svg?seed=Caleb&mouth=variant25,variant28&hair=short10&hairColor=2c1b18",
+            linkedin: "https://www.linkedin.com/in/manjunath-s-2a36737/"
+        },
+        {
+            name: "Ananthkumar Tirumalasetti",
+            role: "Software Engineer",
+            quote: "I had the privilege of working with Satya and I can confidently say he is one of the kindest and most supportive professionals I’ve met. He has a remarkable ability to explain complex concepts in a simple and understandable way. He genuinely encourages new talent and ensures that everyone feels supported.",
+            avatar: "https://api.dicebear.com/7.x/adventurer/svg?seed=Jace&mouth=variant05,variant01&hair=short05&hairColor=2c1b18",
+            linkedin: "#"
+        },
+        {
+            name: "Katie McKay",
+            role: "Director, IT Operations @ Ziply Fiber",
+            quote: "Satya is extremely knowledgeable and helpful in all avenues. He makes projects easier to complete and ensures that the project is done correctly and on time. Highly recommended!",
+            avatar: "https://api.dicebear.com/7.x/adventurer/svg?seed=Sasha&mouth=variant30,variant25&hair=long11&hairColor=4b3832",
+            linkedin: "https://www.linkedin.com/in/katie-mckay-0baa3920b/"
+        },
+        {
+            name: "Tendai Makasi, PhD",
+            role: "Business Analyst @ Western Health",
+            quote: "I had the pleasure of collaborating with Satya on a research project about chatbots. I was highly impressed by his technical expertise on chatbot development as well as his broad awareness on issues that affect deployment... I would not hesitate to recommend Satya to any team.",
+            avatar: "https://api.dicebear.com/7.x/adventurer/svg?seed=Silas&mouth=variant28,variant05&hair=short19&hairColor=2c1b18",
+            linkedin: "https://www.linkedin.com/in/tendai-m-9a38a7149/"
+        },
+        {
+            name: "Riya Punjabi",
+            role: "Agentic AI Manager @ Synopsys | Multi-Agent LLM Systems",
+            quote: "Lokesh is very hard-working and dedicated to his work. He is self-motivated, talented and good at Software Development. He is a quick-learner and an inspiring team player. I would highly recommend him.",
+            avatar: "https://api.dicebear.com/7.x/adventurer/svg?seed=Jade&mouth=variant01,variant25&hair=long19&hairColor=2c1b18",
+            linkedin: "https://www.linkedin.com/in/riyapunjabi/"
+        }
+    ];
+
+    const recoQuote = document.getElementById('active-reco-quote');
+    const recoName = document.getElementById('active-reco-name');
+    const recoRole = document.getElementById('active-reco-role');
+    const recoNav = document.getElementById('reco-nav');
+
+    if (recoQuote && recoNav) {
+        function updateRecommendation(index) {
+            const data = recommendationsData[index];
+            const recoMain = document.querySelector('.reco-main');
+            const itemsToAnimate = recoMain.querySelectorAll('.quote-icon, .active-quote, .active-info');
+            const activeQuote = document.getElementById('active-reco-quote');
+
+            // GSAP Transition
+            gsap.to(itemsToAnimate, {
+                opacity: 0,
+                y: -20,
+                duration: 0.4,
+                stagger: 0.05,
+                ease: "power2.in",
+                onComplete: () => {
+                    activeQuote.innerText = `"${data.quote}"`;
+                    recoName.innerHTML = `<a href="${data.linkedin}" target="_blank" class="reco-link">${data.name}</a>`;
+                    recoRole.innerText = data.role;
+
+                    gsap.fromTo(itemsToAnimate,
+                        { opacity: 0, y: 30 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.8,
+                            stagger: 0.1,
+                            ease: "expo.out"
+                        }
+                    );
+                }
+            });
+
+            // Update Nav
+            document.querySelectorAll('.reco-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+        }
+
+        // Initialize Nav
+        recommendationsData.forEach((reco, i) => {
+            const btn = document.createElement('div');
+            btn.className = `reco-btn ${i === 0 ? 'active' : ''}`;
+            btn.innerHTML = `<img src="${reco.avatar}" alt="${reco.name}" class="reco-avatar">`;
+            btn.addEventListener('click', () => updateRecommendation(i));
+            recoNav.appendChild(btn);
+        });
+
+        // Set Initial Content
+        const initialData = recommendationsData[0];
+        recoQuote.innerText = `"${initialData.quote}"`;
+        recoName.innerHTML = `<a href="${initialData.linkedin}" target="_blank" class="reco-link">${initialData.name}</a>`;
+        recoRole.innerText = initialData.role;
+    }
+
+
+
+    // Contact Section Glow Effect
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+        contactSection.addEventListener('mousemove', (e) => {
+            const rect = contactSection.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            contactSection.style.setProperty('--contact-x', `${x}%`);
+            contactSection.style.setProperty('--contact-y', `${y}%`);
+        });
+    }
+
+    console.log('%c✓ Portfolio Motion System Initialized', 'color: #FF5C00; font-weight: bold;');
+});

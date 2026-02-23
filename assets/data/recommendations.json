@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Saurabh Raj",
+    "role": "Engineering Manager at Deloitte",
+    "text": "I had the pleasure of working with Satya at Dhan AI, where he consistently demonstrated exceptional technical skills and leadership. His ability to translate complex business requirements into scalable technical solutions is remarkable. He's not just a developer—he's a true architect who understands the bigger picture.",
+    "linkedin": "https://linkedin.com/in/saurabhraj"
+  },
+  {
+    "id": 2,
+    "name": "Priyanka Sharma",
+    "role": "Product Manager at Dhan AI",
+    "text": "Satya has been instrumental in delivering multiple high-impact projects. His proactive approach to problem-solving and ability to work across teams makes him an invaluable asset. He has a rare combination of deep technical expertise and strong communication skills.",
+    "linkedin": "https://linkedin.com/in/priyankas"
+  },
+  {
+    "id": 3,
+    "name": "Rahul Verma",
+    "role": "Senior Software Engineer at Microsoft",
+    "text": "Working alongside Satya was an enriching experience. His mentorship helped me grow significantly as an engineer. He has a talent for breaking down complex problems and guiding the team toward elegant solutions. His code quality and architectural decisions consistently set a high bar.",
+    "linkedin": "https://linkedin.com/in/rahulverma"
+  },
+  {
+    "id": 4,
+    "name": "Dr. Anand Kumar",
+    "role": "Professor at Vardhman College",
+    "text": "Satya was one of the most driven students I've taught. His Vardhman Bot project showcased not just technical skills but also a genuine desire to solve real problems for his peers. He has always been curious, hardworking, and willing to go the extra mile.",
+    "linkedin": "https://linkedin.com/in/anandkumar"
+  }
+]
