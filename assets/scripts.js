@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             });
-            btn.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+            btn.innerHTML = 'Show Less <i class="fas fa-chevron-down"></i>';
             btn.classList.add('active');
         }
     };
@@ -508,9 +508,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Add Prev Button
         const prevBtn = document.createElement('button');
+        prevBtn.type = 'button';
         prevBtn.className = 'reco-arrow-btn prev-btn';
         prevBtn.innerHTML = '<i class="fas fa-arrow-left"></i>';
-        prevBtn.addEventListener('click', () => updateRecommendation(currentRecoIndex - 1));
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            updateRecommendation(currentRecoIndex - 1);
+        });
         recoNav.appendChild(prevBtn);
 
         // Initialize Avatar Nav
@@ -524,9 +528,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Add Next Button
         const nextBtn = document.createElement('button');
+        nextBtn.type = 'button';
         nextBtn.className = 'reco-arrow-btn next-btn';
         nextBtn.innerHTML = '<i class="fas fa-arrow-right"></i>';
-        nextBtn.addEventListener('click', () => updateRecommendation(currentRecoIndex + 1));
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            updateRecommendation(currentRecoIndex + 1);
+        });
         recoNav.appendChild(nextBtn);
 
         // Set Initial Content
