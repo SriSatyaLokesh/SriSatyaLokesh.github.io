@@ -555,5 +555,76 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Experience Section Metric Counters
+    const counters = document.querySelectorAll('.counter');
+    const counterObserverOptions = {
+        threshold: 0.5
+    };
+
+    const animateCounter = (counter) => {
+        const target = +counter.getAttribute('data-target');
+        const duration = 2000; // 2 seconds
+        const startTime = performance.now();
+
+        const update = (now) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            // Easing function: easeOutExpo
+            const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+
+            const current = Math.floor(ease * target);
+            counter.innerText = current;
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                counter.innerText = target;
+            }
+        };
+
+        requestAnimationFrame(update);
+    };
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, counterObserverOptions);
+
+    counters.forEach(counter => counterObserver.observe(counter));
+
+    // Magnetic Tilt for Bento Items
+    const bentoItems = document.querySelectorAll('.bento-item');
+    bentoItems.forEach(item => {
+        item.addEventListener('mousemove', (e) => {
+            const { left, top, width, height } = item.getBoundingClientRect();
+            const x = (e.clientX - left) / width - 0.5;
+            const y = (e.clientY - top) / height - 0.5;
+
+            gsap.to(item, {
+                duration: 0.5,
+                rotateY: x * 10,
+                rotateX: -y * 10,
+                transformPerspective: 1000,
+                ease: 'power2.out',
+                overwrite: 'auto'
+            });
+        });
+
+        item.addEventListener('mouseleave', () => {
+            gsap.to(item, {
+                duration: 0.5,
+                rotateY: 0,
+                rotateX: 0,
+                ease: 'power2.out',
+                overwrite: 'auto'
+            });
+        });
+    });
+
     console.log('%c✓ Portfolio Motion System Initialized', 'color: #FF5C00; font-weight: bold;');
 });
