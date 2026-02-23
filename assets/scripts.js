@@ -180,6 +180,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.style.setProperty('--mask-size', '0px');
             });
         });
+
+        // Initialize mask-size for touch (hidden)
+        if (isTouch) {
+            heroReveal.style.setProperty('--mask-size', '0px');
+            heroMain.style.setProperty('--mask-size', '0px');
+            heroMain.style.setProperty('-webkit-mask-image', 'none');
+            heroMain.style.setProperty('mask-image', 'none');
+        }
     }
 
     // ============================================

@@ -237,8 +237,8 @@ body.is-touch .cursor-blur {
     font-size: var(--text-massive);
     font-weight: 900;
     letter-spacing: -0.05em;
-    line-height: 0.82;
-    /* Very tight spacing like reference */
+    line-height: 0.9;
+    /* Adjusted from 0.82 for better mobile stacking */
     text-transform: uppercase;
     display: flex;
     flex-direction: column;
@@ -247,16 +247,20 @@ body.is-touch .cursor-blur {
     text-align: center;
     user-select: none;
     color: var(--fg);
+    width: 100%;
+    padding: 0 var(--container-padding);
 }
 
 .massive-text .line {
     display: block;
-    height: 1.1em;
-    /* Fixed height for perfect alignment */
-    line-height: 1.1;
+    height: auto;
+    /* Changed from fixed 1.1em to auto for better wrapping */
+    min-height: 1.1em;
+    line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    word-break: break-word;
 }
 
 .massive-text .line.accent {
@@ -311,6 +315,26 @@ body.is-touch .cursor-blur {
 
 .hero-main-text {
     z-index: 1;
+}
+
+@media (max-width: 480px) {
+    .massive-text {
+        letter-spacing: -0.02em;
+    }
+
+    .hero-reveal-text {
+        display: none !important;
+        /* Reveal layer is too complex/distracting on small touch screens */
+    }
+
+    .hero-main-text {
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+    }
+
+    .scroll-prompt {
+        bottom: 1.5rem;
+    }
 }
 
 .hero-sub-text {
