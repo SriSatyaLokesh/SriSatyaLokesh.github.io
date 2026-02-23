@@ -16,12 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     const logoLink = document.querySelector('.nav-logo a');
     if (logoLink) {
-        const originalText = "I'M  SATYA  K"; // Use literal for safety
+        const originalText = "I'M  SATYA  K";
         const digits = "0123456789";
+        let logoInterval = null;
 
         logoLink.addEventListener('mouseenter', () => {
+            if (logoInterval) clearInterval(logoInterval);
             let iterations = 0;
-            const interval = setInterval(() => {
+            logoInterval = setInterval(() => {
                 logoLink.innerHTML = originalText.split("")
                     .map((char, index) => {
                         if (index < iterations || char === " ") return char;
@@ -31,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     .join("");
 
                 if (iterations >= originalText.length) {
-                    clearInterval(interval);
+                    clearInterval(logoInterval);
                     logoLink.innerText = originalText;
                 }
                 iterations += 1 / 3;
@@ -39,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         logoLink.addEventListener('mouseleave', () => {
+            if (logoInterval) clearInterval(logoInterval);
             logoLink.innerText = originalText;
         });
     }
@@ -597,10 +600,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     counters.forEach(counter => counterObserver.observe(counter));
 
-    // Magnetic Tilt for Bento Items
-    const bentoItems = document.querySelectorAll('.bento-item');
-    bentoItems.forEach(item => {
+    // Magnetic Tilt for Interactive Cards (Bento, Projects, Experience, Recommendations)
+    const interactiveCards = document.querySelectorAll('.bento-item, .proj-card, .exp-card, .reco-main');
+    interactiveCards.forEach(item => {
         item.addEventListener('mousemove', (e) => {
+            if (document.body.classList.contains('is-touch')) return;
             const { left, top, width, height } = item.getBoundingClientRect();
             const x = (e.clientX - left) / width - 0.5;
             const y = (e.clientY - top) / height - 0.5;
@@ -622,6 +626,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 rotateX: 0,
                 ease: 'power2.out',
                 overwrite: 'auto'
+            });
+        });
+    });
+
+    // Magnetic Interaction for Buttons & Links
+    const magneticElements = document.querySelectorAll('.resume-btn, .hero-resume-link, .exp-toggle');
+    magneticElements.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            if (document.body.classList.contains('is-touch')) return;
+            const { left, top, width, height } = el.getBoundingClientRect();
+            const x = (e.clientX - (left + width / 2)) * 0.35;
+            const y = (e.clientY - (top + height / 2)) * 0.35;
+
+            gsap.to(el, {
+                duration: 0.4,
+                x: x,
+                y: y,
+                ease: 'power2.out'
+            });
+        });
+
+        el.addEventListener('mouseleave', () => {
+            gsap.to(el, {
+                duration: 0.4,
+                x: 0,
+                y: 0,
+                ease: 'power2.out'
             });
         });
     });
