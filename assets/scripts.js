@@ -103,12 +103,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // 0c. THEME MANAGEMENT (LIGHT/DARK MODE)
     // ============================================
     const themeToggle = document.getElementById('theme-toggle');
-    const currentTheme = localStorage.getItem('theme') || 'dark';
+    const savedTheme = localStorage.getItem('theme');
+
+    // Default to 'dark' unless 'light' is explicitly saved
+    // Supporting system preferences as a fallback
+    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const currentTheme = savedTheme || (systemPrefersLight ? 'light' : 'dark');
 
     if (currentTheme === 'light') {
         document.documentElement.classList.add('light-mode');
         initVanta('light');
     } else {
+        document.documentElement.classList.remove('light-mode');
         initVanta('dark');
     }
 
