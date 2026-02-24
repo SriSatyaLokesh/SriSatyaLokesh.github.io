@@ -325,18 +325,57 @@ body.is-touch .cursor-blur {
 .hero-container {
     text-align: center;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.hero-text-wrapper {
+.hero-layers-wrapper {
     display: grid;
     place-items: center;
     position: relative;
     width: 100%;
 }
 
-.hero-text-wrapper>* {
+.hero-layer {
     grid-area: 1 / 1;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.main-layer {
+    z-index: 1;
+    /* Punch hole mask applied to entire layer */
+    -webkit-mask-image: radial-gradient(circle var(--mask-size, 0px) at var(--mask-pos-x, 0px) var(--mask-pos-y, 0px),
+            rgba(0, 0, 0, 0) 0px,
+            rgba(0, 0, 0, 0) var(--mask-size, 0px),
+            rgba(0, 0, 0, 1) calc(var(--mask-size, 0px) + 1px));
+    mask-image: radial-gradient(circle var(--mask-size, 0px) at var(--mask-pos-x, 0px) var(--mask-pos-y, 0px),
+            rgba(0, 0, 0, 0) 0px,
+            rgba(0, 0, 0, 0) var(--mask-size, 0px),
+            rgba(0, 0, 0, 1) calc(var(--mask-size, 0px) + 1px));
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+.reveal-layer {
+    z-index: 2;
+    pointer-events: none;
+    /* Reveal mask applied to entire layer */
+    clip-path: circle(var(--mask-size, 0px) at var(--mask-pos-x, 0px) var(--mask-pos-y, 0px));
+    background-color: var(--bg);
+}
+
+.hero-main-content,
+.hero-reveal-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .massive-text {
@@ -373,55 +412,6 @@ body.is-touch .cursor-blur {
     color: var(--accent) !important;
 }
 
-.hero-reveal-text {
-    pointer-events: none;
-    z-index: 2;
-    /* Fixed to viewport so no parent element can clip the circle */
-    position: fixed;
-    inset: 0;
-    clip-path: circle(var(--mask-size, 0px) at var(--mask-pos-x, 0px) var(--mask-pos-y, 0px));
-    background-color: var(--bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    isolation: isolate;
-}
-
-/* Reveal layer specific color overrides to ensure opposite pattern */
-.hero-reveal-text .line {
-    color: var(--fg) !important;
-}
-
-.hero-reveal-text .line.accent {
-    color: var(--accent) !important;
-}
-
-.hero-main-text {
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Punch hole using sharp-edged pixel gradient */
-    -webkit-mask-image: radial-gradient(circle 150px at var(--mask-pos-x, 0px) var(--mask-pos-y, 0px),
-            rgba(0, 0, 0, 0) 0px,
-            rgba(0, 0, 0, 0) 150px,
-            rgba(0, 0, 0, 1) 151px);
-    mask-image: radial-gradient(circle 150px at var(--mask-pos-x, 0px) var(--mask-pos-y, 0px),
-            rgba(0, 0, 0, 0) 0px,
-            rgba(0, 0, 0, 0) 150px,
-            rgba(0, 0, 0, 1) 151px);
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-}
-
-.line.accent {
-    color: var(--accent) !important;
-}
-
-
-.hero-main-text {
-    z-index: 1;
-}
 
 @media (max-width: 480px) {
     :root {
@@ -479,11 +469,7 @@ body.is-touch .cursor-blur {
 }
 
 .scroll-down-wrapper span {
-    font-weight: 700;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    animation: none !important;
-    /* Text does NOT animate */
+    display: none;
 }
 
 .scroll-arrow {
@@ -500,8 +486,9 @@ body.is-touch .cursor-blur {
         opacity: 0.4;
     }
 
-    60% {
+    50% {
         transform: translateY(8px);
+        /* Shorter pull */
         opacity: 1;
     }
 
@@ -512,33 +499,94 @@ body.is-touch .cursor-blur {
 }
 
 .hero-resume-wrapper {
-    position: absolute;
-    bottom: 3.2rem;
-    right: 5%;
+    margin-top: 3rem;
     z-index: 10;
+    position: relative;
 }
 
 .hero-resume-link {
     font-weight: 900;
-    font-size: 1.1rem;
-    color: var(--fg);
+    font-size: 1rem;
+    color: var(--bg);
+    background: var(--accent);
     text-decoration: none;
     letter-spacing: 2px;
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
-    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    padding: 1rem 2.5rem;
+    border-radius: 4px;
+    transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(255, 92, 0, 0.2);
+    animation: premiumFloat 3s ease-in-out infinite, shimmer 4s linear infinite;
+    background: linear-gradient(90deg,
+            var(--accent) 0%,
+            #ff8a4d 45%,
+            #ffffff 50%,
+            #ff8a4d 55%,
+            var(--accent) 100%);
+    background-size: 200% 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+@keyframes premiumFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
 }
 
 .hero-resume-link i {
-    color: var(--accent);
-    font-size: 1.3rem;
+    color: var(--bg);
+    font-size: 1.2rem;
 }
 
 .hero-resume-link:hover {
-    color: var(--accent);
-    letter-spacing: 6px;
-    transform: skewX(-5deg) translateX(-10px);
+    background: var(--fg) !important;
+    color: var(--bg) !important;
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 25px 60px rgba(255, 255, 255, 0.2);
+    /* Pause shimmer on hover to emphasize color change */
+    animation: premiumFloat 3s ease-in-out infinite;
+}
+
+.hero-resume-link::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 100%;
+    height: 200%;
+    background: linear-gradient(transparent,
+            rgba(255, 140, 0, 0.4),
+            transparent);
+    transform: rotate(35deg);
+    transition: 0.8s;
+    pointer-events: none;
+}
+
+.hero-resume-link:hover::after {
+    left: 200%;
+}
+
+.hero-resume-link:hover i {
+    color: var(--bg) !important;
 }
 
 /* ============================================

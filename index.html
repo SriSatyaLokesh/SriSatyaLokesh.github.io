@@ -128,7 +128,7 @@
         <!-- Top Navigation -->
         <nav class="nav-minimal">
             <div class="nav-logo">
-                <a href="#">I'M SATYA K</a>
+                <a href="#home">I'M SATYA K</a>
             </div>
             <button class="nav-toggle" aria-label="Toggle Navigation">
                 <span class="hamburger"></span>
@@ -161,47 +161,49 @@
         <!-- Hero Section -->
         <section id="home" class="hero">
             <div class="hero-container">
-                <div class="hero-text-wrapper">
-                    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
-                        <defs>
-                            <mask id="hero-mask" maskUnits="userSpaceOnUse">
-                                <rect width="10000" height="10000" x="-5000" y="-5000" fill="white" />
-                                <circle id="mask-circle" cx="50%" cy="50%" r="0" fill="black" />
-                            </mask>
-                        </defs>
-                    </svg>
-                    <div class="hero-main-text">
-                        <h1 class="massive-text">
-                            <span class="line">DESIGNING</span>
-                            <span class="line accent">& DEVELOPING</span>
-                            <span class="line accent">SCALABLE</span>
-                            <span class="line">APPLICATIONS</span>
-                        </h1>
+                <div class="hero-layers-wrapper">
+                    <!-- MAIN LAYER (Visible, masked by hole) -->
+                    <div class="hero-layer main-layer">
+                        <div class="hero-main-content">
+                            <h1 class="massive-text">
+                                <span class="line">DESIGNING</span>
+                                <span class="line accent">& DEVELOPING</span>
+                                <span class="line accent">SCALABLE</span>
+                                <span class="line">APPLICATIONS</span>
+                            </h1>
+                            <div class="hero-sub-text">
+                                <p>SINCE 2019</p>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Hidden Reveal Mirror -->
-                    <div class="hero-reveal-text" aria-hidden="true">
-                        <div class="massive-text">
-                            <span class="line accent">TRAVELLING</span>
-                            <span class="line">& EXPLORING</span>
-                            <span class="line">THE WORLD</span>
-                            <span class="line accent">AROUND ME</span>
+
+                    <!-- REVEAL LAYER (Hidden, revealed by circle) -->
+                    <div class="hero-layer reveal-layer" aria-hidden="true">
+                        <div class="hero-reveal-content">
+                            <div class="massive-text">
+                                <span class="line accent">TRAVELLING</span>
+                                <span class="line">& EXPLORING</span>
+                                <span class="line">THE WORLD</span>
+                                <span class="line accent">AROUND ME</span>
+                            </div>
+                            <div class="hero-sub-text">
+                                <p>SINCE BIRTH</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="hero-sub-text">
-                    <p>SINCE 2019</p>
-                </div>
 
+                <!-- CTA (Always Visible) -->
+                <div class="hero-resume-wrapper">
+                    <a href="assets/resume/Sri-Satya-Lokesh-K-Lead-Engineer-Resume.pdf" target="_blank"
+                        class="hero-resume-link resume-no-expand">
+                        VIEW RESUME
+                    </a>
+                </div>
             </div>
-            <div class="hero-resume-wrapper">
-                <a href="assets/resume/Sri-Satya-Lokesh-K-Lead-Engineer-Resume.pdf" target="_blank"
-                    class="hero-resume-link resume-no-expand">
-                    <i class="fas fa-file-pdf"></i> RESUME
-                </a>
-            </div>
+
             <div class="scroll-prompt">
                 <a href="#about" class="scroll-down-wrapper">
-                    <span>SCROLL DOWN</span>
                     <i class="fas fa-chevron-down scroll-arrow"></i>
                 </a>
             </div>

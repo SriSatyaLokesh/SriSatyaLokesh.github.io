@@ -3,6 +3,12 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Prevent auto-scroll/jump on refresh
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
     // ============================================
     // -1. TOUCH DETECTION
     // ============================================
@@ -55,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             el: '#home',
             THREE: THREE,
             mouseControls: true,
-            touchControls: false,
+            touchControls: true,
             gyroControls: false,
             minHeight: 200.00,
             minWidth: 200.00,
@@ -63,8 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
             midtoneColor: 0x1a0800,    // Near-black dark orange
             lowlightColor: 0x000000,   // Pure black
             baseColor: 0x000000,       // Pure black base
-            blurFactor: 0.75,          // Higher blur = softer, more diffused wisps
-            speed: 2.60,
+            blurFactor: 0.95,          // Higher blur = softer, more diffused wisps
+            speed: 2.90,
             zoom: 1.60,
         });
     }
@@ -155,30 +161,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. HERO REVEAL MOUSE INTERACTION
     // ============================================
     const heroSection = document.querySelector('.hero');
-    const heroWrapper = document.querySelector('.hero-text-wrapper');
-    const heroReveal = document.querySelector('.hero-reveal-text');
-    const heroMain = document.querySelector('.hero-main-text');
+    const heroLayers = document.querySelector('.hero-layers-wrapper');
+    const revealLayer = document.querySelector('.reveal-layer');
+    const mainLayer = document.querySelector('.main-layer');
 
-    if (heroSection && heroWrapper && heroReveal && heroMain) {
+    if (heroSection && heroLayers && revealLayer && mainLayer) {
         heroSection.addEventListener('mousemove', (e) => {
             if (isTouch) return;
-            const rect = heroWrapper.getBoundingClientRect();
+            const rect = heroLayers.getBoundingClientRect();
             const relX = e.clientX - rect.left;
             const relY = e.clientY - rect.top;
 
-            // heroReveal is position:fixed → needs VIEWPORT coords (clientX/Y)
-            heroReveal.style.setProperty('--mask-size', '300px');
-            heroReveal.style.setProperty('--mask-pos-x', e.clientX + 'px');
-            heroReveal.style.setProperty('--mask-pos-y', e.clientY + 'px');
-
-            // heroMain is inside the wrapper → needs RELATIVE coords
-            heroMain.style.setProperty('--mask-size', '300px');
-            heroMain.style.setProperty('--mask-pos-x', relX + 'px');
-            heroMain.style.setProperty('--mask-pos-y', relY + 'px');
+            // Updated selectors to new layer-based structure (200px circle)
+            [revealLayer, mainLayer].forEach(layer => {
+                layer.style.setProperty('--mask-size', '200px');
+                layer.style.setProperty('--mask-pos-x', relX + 'px');
+                layer.style.setProperty('--mask-pos-y', relY + 'px');
+            });
         });
 
         heroSection.addEventListener('mouseleave', () => {
-            [heroReveal, heroMain].forEach(el => {
+            [revealLayer, mainLayer].forEach(el => {
                 el.style.setProperty('--mask-size', '0px');
             });
         });
