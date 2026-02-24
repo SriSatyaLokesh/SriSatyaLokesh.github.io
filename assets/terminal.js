@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { text: "Goal: Building the future of Agentic AI.", type: "success" },
         { text: "satya --status", type: "command" },
         { text: "Ready for high-scale challenges.", type: "system" }
-        { text: "........", type: "system" }
     ];
 
     let lineIndex = 0;
