@@ -56,22 +56,68 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // 0b. VANTA FOG BACKGROUND
     // ============================================
-    if (typeof VANTA !== 'undefined') {
-        VANTA.FOG({
-            el: '#home',
-            THREE: THREE,
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            highlightColor: 0x3a1200,  // Very dim burnt orange — barely visible glow
-            midtoneColor: 0x1a0800,    // Near-black dark orange
-            lowlightColor: 0x000000,   // Pure black
-            baseColor: 0x000000,       // Pure black base
-            blurFactor: 0.95,          // Higher blur = softer, more diffused wisps
-            speed: 2.90,
-            zoom: 1.60,
+    let vantaEffect = null;
+    function initVanta(theme = 'dark') {
+        if (typeof VANTA !== 'undefined') {
+            if (vantaEffect) vantaEffect.destroy();
+
+            if (theme === 'dark') {
+                vantaEffect = VANTA.FOG({
+                    el: '#home',
+                    THREE: THREE,
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    highlightColor: 0x3a1200,
+                    midtoneColor: 0x1a0800,
+                    lowlightColor: 0x000000,
+                    baseColor: 0x000000,
+                    blurFactor: 0.95,
+                    speed: 2.90,
+                    zoom: 1.60,
+                });
+            } else {
+                vantaEffect = VANTA.FOG({
+                    el: '#home',
+                    THREE: THREE,
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    highlightColor: 0xe88a2d,
+                    midtoneColor: 0xffffff,
+                    lowlightColor: 0xea9300,
+                    baseColor: 0xffebeb,
+                    blurFactor: 0.56,
+                    speed: 1.7,
+                    zoom: 0.8,
+                });
+            }
+        }
+    }
+
+    // ============================================
+    // 0c. THEME MANAGEMENT (LIGHT/DARK MODE)
+    // ============================================
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+
+    if (currentTheme === 'light') {
+        document.documentElement.classList.add('light-mode');
+        initVanta('light');
+    } else {
+        initVanta('dark');
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isLight = document.documentElement.classList.toggle('light-mode');
+            const newTheme = isLight ? 'light' : 'dark';
+            localStorage.setItem('theme', newTheme);
+            initVanta(newTheme);
         });
     }
 

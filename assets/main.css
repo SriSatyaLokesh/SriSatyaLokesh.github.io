@@ -3,6 +3,10 @@
     --fg: #E7E7E7;
     --accent: #FF5C00;
     --muted: #9A9A9A;
+    --nav-bg: rgba(0, 0, 0, 0.8);
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --card-border: rgba(255, 255, 255, 0.05);
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 
     --font-main: 'Inter', sans-serif;
 
@@ -16,6 +20,17 @@
     /* FLUID SPACING */
     --section-padding: clamp(4rem, 10vw, 10rem);
     --container-padding: clamp(1.5rem, 5vw, 3rem);
+}
+
+:root.light-mode {
+    --bg: #F5F5F7;
+    --fg: #1D1D1F;
+    --accent: #FF5C00;
+    --muted: #86868B;
+    --nav-bg: rgba(245, 245, 247, 0.8);
+    --card-bg: #FFFFFF;
+    --card-border: rgba(0, 0, 0, 0.08);
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
 * {
@@ -40,6 +55,152 @@ body {
     overflow-x: hidden;
     cursor: none;
     /* Custom cursor used instead */
+}
+
+/* ============================================
+   THEME SWITCH (HORIZONTAL)
+   ============================================ */
+.nav-theme-item {
+    margin-top: 1.5rem;
+    list-style: none;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+.theme-switch {
+    background: rgba(128, 128, 128, 0.1);
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    width: 64px;
+    height: 32px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    justify-content: space-between;
+}
+
+.theme-switch:hover {
+    border-color: var(--accent);
+}
+
+.switch-handle {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    background: var(--accent);
+    border-radius: 50%;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.light-mode .switch-handle {
+    transform: translateX(32px);
+}
+
+.theme-switch i {
+    font-size: 0.85rem;
+    z-index: 1;
+    transition: color 0.3s ease, opacity 0.3s ease;
+    color: var(--fg);
+    opacity: 0.4;
+}
+
+.theme-switch .fa-moon {
+    margin-left: 2px;
+}
+
+.theme-switch .fa-sun {
+    margin-right: 2px;
+}
+
+/* Highlight active icon */
+.theme-switch i.active,
+body:not(.light-mode) .theme-switch .fa-moon,
+.light-mode .theme-switch .fa-sun {
+    opacity: 1;
+    color: var(--bg);
+}
+
+.light-mode .theme-switch .fa-moon {
+    opacity: 0.4;
+    color: var(--fg);
+}
+
+/* Light Mode Specific Overrides */
+.light-mode .chip {
+    color: var(--fg);
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.light-mode .chip img {
+    --chip-img-invert: invert(0);
+}
+
+.light-mode .exp-line {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .metric-item {
+    background: #FFFFFF;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+}
+
+.light-mode .skill-category {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.light-mode .contact {
+    background: radial-gradient(circle at 50% 50%, #FFFFFF 0%, #F5F5F7 100%);
+}
+
+.light-mode .contact::before {
+    opacity: 0.05;
+}
+
+.light-mode .terminal {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .terminal-header {
+    background: rgba(0, 0, 0, 0.03);
+    border-bottom-color: rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .terminal-title {
+    color: var(--muted);
+}
+
+.light-mode .terminal-line.command {
+    color: var(--fg);
+}
+
+.light-mode .terminal-cursor {
+    background: var(--fg);
+}
+
+.light-mode .contact-social-links a {
+    color: var(--fg);
+}
+
+.light-mode .reveal-layer {
+    background-color: #FFFFFF;
+}
+
+.light-mode .reveal-layer .massive-text,
+.light-mode .reveal-layer .hero-sub-text p {
+    color: var(--fg) !important;
+}
+
+.light-mode .cursor-blur {
+    background: radial-gradient(circle, rgba(255, 92, 0, 0.08) 0%, rgba(255, 92, 0, 0) 70%);
 }
 
 body.is-touch {
@@ -637,18 +798,25 @@ body.is-touch .cursor-blur {
 .proj-card {
     display: flex;
     gap: 2rem;
-    padding: 2rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    transition: all 0.3s ease;
+    padding: 2.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
 
 .proj-card:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
 }
 
 .proj-card:hover {
-    padding-left: 0.5rem;
-    border-left: 3px solid var(--accent);
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .proj-number {
@@ -1246,19 +1414,20 @@ body.is-touch .cursor-blur {
 }
 
 .bento-item {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     border-left: 2px solid var(--accent);
     border-radius: 12px;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    transition: background 0.3s ease, border-color 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     transform-style: preserve-3d;
     backface-visibility: hidden;
     will-change: transform;
     height: 100%;
     box-sizing: border-box;
+    box-shadow: var(--card-shadow);
 }
 
 .bento-item:hover {
@@ -1340,9 +1509,9 @@ body.is-touch .cursor-blur {
     padding: 0.3rem 0.8rem;
     font-size: 0.78rem;
     font-weight: 600;
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--fg);
+    background: rgba(128, 128, 128, 0.05);
+    border: 1px solid var(--card-border);
     border-radius: 20px;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: default;
@@ -1351,8 +1520,8 @@ body.is-touch .cursor-blur {
 .chip img {
     height: 14px;
     width: auto;
-    filter: brightness(0) invert(1);
-    /* Make black SVGs white */
+    filter: brightness(0) var(--chip-img-invert, invert(1));
+    /* Dynamic invert based on theme */
     opacity: 0.8;
     transition: transform 0.2s ease, filter 0.2s ease;
 }
@@ -1366,7 +1535,7 @@ body.is-touch .cursor-blur {
 
 .chip:hover img {
     transform: scale(1.1);
-    filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255, 92, 0, 0.5));
+    filter: brightness(0) var(--chip-img-invert, invert(1)) drop-shadow(0 0 5px rgba(255, 92, 0, 0.5));
     opacity: 1;
 }
 
@@ -1637,7 +1806,8 @@ body.is-touch .cursor-blur {
     position: relative;
     padding: 0;
     overflow: hidden;
-    background: radial-gradient(circle at 50% 50%, #0a0a0a 0%, #000000 100%);
+    background: radial-gradient(circle at 50% 50%, var(--bg) 0%, var(--bg) 100%);
+    transition: background 0.3s ease;
 }
 
 /* Noise Texture Overlay */
@@ -1973,6 +2143,11 @@ body.is-touch .cursor-blur {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 3.5rem;
+    box-shadow: var(--card-shadow);
     transform-style: preserve-3d;
     backface-visibility: hidden;
     will-change: transform;

@@ -110,10 +110,9 @@
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.20/dist/lenis.css">
 
-    <!-- Three.js (required by Vanta) -->
+    <!-- Three.js (r134) - Required for Vanta compatibility -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <!-- Vanta.js Fog -->
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.fog.min.js"></script>
 </head>
 
 <body>
@@ -139,6 +138,13 @@
                 <li><a href="#skills" data-text="SKILLS"><span>SKILLS</span></a></li>
                 <li><a href="#projects" data-text="PROJECTS"><span>PROJECTS</span></a></li>
                 <li><a href="#contact" data-text="CONTACT"><span>CONTACT</span></a></li>
+                <li class="nav-theme-item">
+                    <div class="theme-switch" id="theme-toggle" title="Switch Theme">
+                        <div class="switch-handle"></div>
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </div>
+                </li>
             </ul>
         </nav>
 
