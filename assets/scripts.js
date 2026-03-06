@@ -616,7 +616,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Experience Section Metric Counters
     const counters = document.querySelectorAll('.counter');
     const counterObserverOptions = {
-        threshold: 0.5
+        threshold: window.innerWidth < 768 ? 0.1 : 0.5
     };
 
     const animateCounter = (counter) => {
