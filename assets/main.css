@@ -2540,4 +2540,118 @@ html.lenis {
         align-items: center;
         width: 100%;
     }
+
+    /* Fixed header text overlap prevention */
+    .nav-minimal {
+        background: rgba(0, 0, 0, 0.9) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        padding: 1.2rem 1.5rem !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+    }
+
+    .light-mode .nav-minimal {
+        background: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .experience,
+    .about,
+    .projects,
+    .skills {
+        padding-top: 100px !important;
+    }
+
+    /* Prevent horizontal overflow strictly */
+    .container {
+        padding-left: 1.2rem !important;
+        padding-right: 1.2rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Counter Grid for Mobile */
+    .exp-metrics {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem !important;
+        margin: 1.5rem 0 !important;
+    }
+
+    .exp-metrics .metric-item:nth-child(3) {
+        grid-column: span 2;
+    }
+
+    /* Experience Card Polish */
+    .exp-card {
+        padding: 1rem !important;
+        margin-left: 0 !important;
+        border-left: none !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+    }
+
+    /* Ensure Read More expansion doesn't break layout */
+    .exp-details {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .exp-details ul li {
+        font-size: 0.8rem !important;
+        line-height: 1.5 !important;
+    }
+
+    /* Project Cards to 1 column */
+    .projects-content {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    /* Skills Grid Optimization */
+    .skills-content {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem !important;
+    }
+
+    /* Recommendations horizontal scroll fix */
+    .reco-nav {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        justify-content: flex-start !important;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        gap: 1.5rem !important;
+        padding: 1rem 0 !important;
+    }
+
+    .reco-btn {
+        flex: 0 0 auto !important;
+        scroll-snap-align: center;
+        display: block !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-content {
+        grid-template-columns: 1fr !important;
+    }
+
+    .exp-metrics {
+        grid-template-columns: 1fr !important;
+    }
+
+    .exp-metrics .metric-item:nth-child(3) {
+        grid-column: auto;
+    }
+
+    .section-label {
+        font-size: 1.4rem !important;
+    }
+
+    .nav-logo a {
+        font-size: 1.2rem !important;
+    }
 }
