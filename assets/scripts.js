@@ -240,10 +240,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initialize mask-size for touch (hidden)
         if (isTouch) {
-            heroReveal.style.setProperty('--mask-size', '0px');
-            heroMain.style.setProperty('--mask-size', '0px');
-            heroMain.style.setProperty('-webkit-mask-image', 'none');
-            heroMain.style.setProperty('mask-image', 'none');
+            revealLayer.style.setProperty('--mask-size', '0px');
+            mainLayer.style.setProperty('--mask-size', '0px');
+            mainLayer.style.setProperty('-webkit-mask-image', 'none');
+            mainLayer.style.setProperty('mask-image', 'none');
         }
     }
 
@@ -331,33 +331,35 @@ document.addEventListener('DOMContentLoaded', () => {
         const isExpanded = btn.classList.contains('active');
 
         if (isExpanded) {
-            // Collapse: fade out items then shrink
-            const items = details.querySelectorAll('li, .exp-env');
-            gsap.to(items, {
-                opacity: 0,
-                y: -10,
-                duration: 0.2,
-                stagger: 0.03,
+            // Collapse
+            gsap.to(details, {
+                height: 0,
+                duration: 0.4,
+                ease: 'power2.inOut',
                 onComplete: () => {
-                    gsap.to(details, {
-                        height: 0,
-                        duration: 0.4,
-                        ease: 'power2.inOut'
+                    details.querySelectorAll('li, .exp-env').forEach(el => {
+                        el.style.opacity = '';
+                        el.style.transform = '';
                     });
                 }
             });
             btn.innerHTML = 'Read More <i class="fas fa-chevron-down"></i>';
             btn.classList.remove('active');
         } else {
-            // Expand: grow height then stagger-reveal items
+            // Expand: measure full height first, then animate to that exact value
+            details.style.height = 'auto';
+            const fullHeight = details.scrollHeight + 'px';
+            details.style.height = '0';
+
             const items = details.querySelectorAll('li, .exp-env');
             gsap.set(items, { opacity: 0, y: 15 });
 
             gsap.to(details, {
-                height: 'auto',
-                duration: 0.6,
+                height: fullHeight,
+                duration: 0.5,
                 ease: 'power2.inOut',
                 onComplete: () => {
+                    details.style.height = 'auto'; // Reset to auto after animation completes
                     gsap.to(items, {
                         opacity: 1,
                         y: 0,
@@ -367,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             });
-            btn.innerHTML = 'Show Less <i class="fas fa-chevron-down"></i>';
+            btn.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
             btn.classList.add('active');
         }
     };
@@ -618,43 +620,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Experience Section Metric Counters (Handled via robust GSAP ScrollTrigger for iOS Safari stability)
+    // ============================================
+    // Experience Section Metric Counters
+    // Uses direct getBoundingClientRect check to handle the case where
+    // elements are already in-view on page load (mobile DevTools, etc.)
+    // ============================================
     const counters = document.querySelectorAll('.counter');
 
     const animateCounter = (counter) => {
         if (counter.classList.contains('animated')) return;
         counter.classList.add('animated');
-
         const target = +counter.getAttribute('data-target');
-        const duration = 2000; // 2 seconds
+        const duration = 2000;
         const startTime = performance.now();
-
         const update = (now) => {
             const elapsed = now - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-            const current = Math.floor(ease * target);
-
-            counter.innerText = current;
-
+            counter.innerText = Math.floor(ease * target);
             if (progress < 1) {
                 requestAnimationFrame(update);
             } else {
                 counter.innerText = target;
             }
         };
-
         requestAnimationFrame(update);
     };
 
-    counters.forEach(counter => {
-        ScrollTrigger.create({
-            trigger: counter,
-            start: "top 95%",
-            onEnter: () => animateCounter(counter),
-            once: true
+    const checkCounters = () => {
+        counters.forEach(counter => {
+            const rect = counter.getBoundingClientRect();
+            const inView = rect.top < window.innerHeight && rect.bottom > 0;
+            if (inView) animateCounter(counter);
         });
-    });
+    };
+
+    // Check immediately on load (handles case where element is already visible)
+    checkCounters();
+    // Also check on every scroll
+    window.addEventListener('scroll', checkCounters, { passive: true });
 
     // Magnetic Tilt for Interactive Cards (Bento, Projects, Experience, Recommendations)
     const interactiveCards = document.querySelectorAll('.bento-item, .proj-card, .exp-card, .reco-main');
