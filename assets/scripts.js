@@ -599,6 +599,11 @@ document.addEventListener('DOMContentLoaded', () => {
         recoQuote.innerText = `"${initialData.quote}"`;
         recoName.innerHTML = `<a href="${initialData.linkedin}" target="_blank" class="reco-link">${initialData.name}</a>`;
         recoRole.innerText = initialData.role;
+
+        // Ensure visibility on load
+        const recoMain = document.querySelector('.reco-main');
+        const itemsToAnimate = recoMain.querySelectorAll('.quote-icon, .active-quote, .active-info');
+        gsap.set(itemsToAnimate, { opacity: 1, y: 0 });
     }
 
     // Contact Section Glow Effect
@@ -613,13 +618,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Experience Section Metric Counters
+    // Experience Section Metric Counters (Handled via robust GSAP ScrollTrigger for iOS Safari stability)
     const counters = document.querySelectorAll('.counter');
-    const counterObserverOptions = {
-        threshold: window.innerWidth < 768 ? 0.1 : 0.5
-    };
 
     const animateCounter = (counter) => {
+        if (counter.classList.contains('animated')) return;
+        counter.classList.add('animated');
+
         const target = +counter.getAttribute('data-target');
         const duration = 2000; // 2 seconds
         const startTime = performance.now();
@@ -627,11 +632,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const update = (now) => {
             const elapsed = now - startTime;
             const progress = Math.min(elapsed / duration, 1);
-
-            // Easing function: easeOutExpo
             const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-
             const current = Math.floor(ease * target);
+
             counter.innerText = current;
 
             if (progress < 1) {
@@ -644,22 +647,20 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(update);
     };
 
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                observer.unobserve(entry.target);
-            }
+    counters.forEach(counter => {
+        ScrollTrigger.create({
+            trigger: counter,
+            start: "top 95%",
+            onEnter: () => animateCounter(counter),
+            once: true
         });
-    }, counterObserverOptions);
-
-    counters.forEach(counter => counterObserver.observe(counter));
+    });
 
     // Magnetic Tilt for Interactive Cards (Bento, Projects, Experience, Recommendations)
     const interactiveCards = document.querySelectorAll('.bento-item, .proj-card, .exp-card, .reco-main');
     interactiveCards.forEach(item => {
         item.addEventListener('mousemove', (e) => {
-            if (document.body.classList.contains('is-touch')) return;
+            if (window.innerWidth < 1024 || document.body.classList.contains('is-touch')) return; // Strict mobile bypass for click-absorption
             const { left, top, width, height } = item.getBoundingClientRect();
             const x = (e.clientX - left) / width - 0.5;
             const y = (e.clientY - top) / height - 0.5;
@@ -689,7 +690,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const magneticElements = document.querySelectorAll('.resume-btn, .hero-resume-link, .exp-toggle');
     magneticElements.forEach(el => {
         el.addEventListener('mousemove', (e) => {
-            if (document.body.classList.contains('is-touch')) return;
+            if (window.innerWidth < 1024 || document.body.classList.contains('is-touch')) return; // Strict mobile bypass for click-absorption
             const { left, top, width, height } = el.getBoundingClientRect();
             const x = (e.clientX - (left + width / 2)) * 0.35;
             const y = (e.clientY - (top + height / 2)) * 0.35;

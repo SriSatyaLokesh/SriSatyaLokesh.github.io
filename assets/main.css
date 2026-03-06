@@ -41,7 +41,7 @@
 
 body,
 html {
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
     max-width: 100%;
 }
@@ -50,14 +50,14 @@ body {
     background-color: var(--bg);
     color: var(--fg);
     font-family: var(--font-main);
-    overflow-x: hidden;
+    overflow-x: clip;
     cursor: none;
     /* Custom cursor used instead */
 }
 
 /* Content Wrapper Overflow Protection */
 .content-wrapper {
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
     max-width: 100%;
 }
@@ -1280,18 +1280,21 @@ body.is-touch .cursor-blur {
 }
 
 /* Expandable details */
-.exp-details {
+.exp-details,
+.proj-details {
     height: 0;
     overflow: hidden;
 }
 
-.exp-details ul {
+.exp-details ul,
+.proj-details ul {
     list-style: none;
     padding: 0;
     margin: 0.8rem 0;
 }
 
-.exp-details li {
+.exp-details li,
+.proj-details li {
     font-size: 0.85rem;
     color: var(--muted);
     line-height: 1.6;
@@ -2525,6 +2528,17 @@ html.lenis {
         justify-content: center;
     }
 
+    /* iOS SAFARI CLICK ABSORPTION BUG FIX */
+    .bento-item,
+    .proj-card,
+    .exp-card,
+    .reco-main,
+    .exp-toggle {
+        transform-style: flat !important;
+        transform: none !important;
+        will-change: auto !important;
+    }
+
     .reco-nav .avatar-btn {
         display: none !important;
     }
@@ -2641,6 +2655,7 @@ html.lenis {
 
     .exp-metrics {
         grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
     }
 
     .exp-metrics .metric-item:nth-child(3) {
@@ -2653,5 +2668,28 @@ html.lenis {
 
     .nav-logo a {
         font-size: 1.2rem !important;
+    }
+
+    .recommendations {
+        padding-top: 8rem !important;
+        min-height: auto !important;
+    }
+
+    .reco-main {
+        padding: 1.5rem !important;
+        width: 100% !important;
+        min-height: 250px !important;
+        overflow: visible !important;
+    }
+
+    .active-quote {
+        font-size: 1.1rem !important;
+        min-height: auto !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.4 !important;
+    }
+
+    .reco-content {
+        gap: 1.5rem !important;
     }
 }
