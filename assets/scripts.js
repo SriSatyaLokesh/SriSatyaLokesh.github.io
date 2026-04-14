@@ -53,49 +53,123 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // ============================================
-    // 0b. VANTA FOG BACKGROUND
-    // ============================================
-    let vantaEffect = null;
-    function initVanta(theme = 'dark') {
-        if (typeof VANTA !== 'undefined') {
-            if (vantaEffect) vantaEffect.destroy();
 
-            if (theme === 'dark') {
-                vantaEffect = VANTA.FOG({
-                    el: '#home',
-                    THREE: THREE,
-                    mouseControls: true,
-                    touchControls: true,
-                    gyroControls: false,
-                    minHeight: 200.00,
-                    minWidth: 200.00,
-                    highlightColor: 0x3a1200,
-                    midtoneColor: 0x1a0800,
-                    lowlightColor: 0x000000,
-                    baseColor: 0x000000,
-                    blurFactor: 0.95,
-                    speed: 2.90,
-                    zoom: 1.60,
-                });
-            } else {
-                vantaEffect = VANTA.FOG({
-                    el: '#home',
-                    THREE: THREE,
-                    mouseControls: true,
-                    touchControls: true,
-                    gyroControls: false,
-                    minHeight: 200.00,
-                    minWidth: 200.00,
-                    highlightColor: 0xe88a2d,
-                    midtoneColor: 0xffffff,
-                    lowlightColor: 0xea9300,
-                    baseColor: 0xffebeb,
-                    blurFactor: 0.56,
-                    speed: 1.7,
-                    zoom: 0.8,
-                });
+    // ============================================
+    // 0b. VANTA BACKGROUND SYSTEM (MULTI-EFFECT)
+    // ============================================
+    let vantaInstance = null;
+    let isVantaTransitioning = false;
+    
+    // Always default to FOG on load as requested
+    window._VANTA_OVERRIDE = 'FOG';
+
+    const vantaEffectsPool = [
+        'FOG', 'BIRDS', 'WAVES', 'CLOUDS', 'CLOUDS2', 'GLITCH', 
+        'HALO', 'TRUNK', 'TOPOLOGY', 'DOTS', 'RINGS', 'NET'
+    ];
+
+    window.loadVantaScript = function(effectName) {
+        return new Promise((resolve, reject) => {
+            const slug = effectName.toLowerCase();
+            if (typeof VANTA !== 'undefined' && typeof VANTA[effectName] === 'function') return resolve();
+            
+            // Check if script already exists to avoid duplicates
+            const existingScript = document.querySelector(`script[src*="vanta.${slug}"]`);
+            if (existingScript) {
+                existingScript.onload = resolve;
+                existingScript.onerror = reject;
+                return;
             }
+
+            const script = document.createElement('script');
+            script.src = `https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.${slug}.min.js`;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    };
+
+    function hexToNumber(hex) {
+        return parseInt(hex.replace('#', '0x'), 16);
+    }
+
+    function initVanta(theme = 'dark', effectName = null) {
+        if (!effectName) effectName = window._VANTA_OVERRIDE;
+        
+        if (typeof VANTA !== 'undefined' && typeof VANTA[effectName] === 'function') {
+            if (vantaInstance) {
+                try {
+                    vantaInstance.destroy();
+                } catch(e) { console.warn("Vanta destroy failed:", e); }
+            }
+
+            const isLight = theme === 'light';
+            const accent = hexToNumber(getComputedStyle(document.body).getPropertyValue('--accent').trim());
+            const bg = hexToNumber(getComputedStyle(document.body).getPropertyValue('--bg').trim());
+            
+            const baseOptions = {
+                el: '#home',
+                THREE: THREE,
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00
+            };
+
+            let options = { ...baseOptions };
+            
+            // Effect-specific property mapping and monochromatic sync
+            switch(effectName) {
+                case 'FOG':
+                    options = { ...options, 
+                        highlightColor: isLight ? 0xe88a2d : 0x3a1200,
+                        midtoneColor: isLight ? 0xffffff : 0x1a0800,
+                        lowlightColor: isLight ? 0xea9300 : 0x000000,
+                        baseColor: isLight ? 0xffebeb : 0x000000,
+                        blurFactor: isLight ? 0.56 : 0.95,
+                        speed: isLight ? 1.7 : 2.9,
+                        zoom: isLight ? 0.8 : 1.6
+                    };
+                    break;
+                case 'BIRDS':
+                    options = { ...options, backgroundColor: bg, color1: accent, color2: accent, colorMode: 'lerp', birdSize: 1.5 };
+                    break;
+                case 'WAVES':
+                    options = { ...options, color: accent, shininess: 30, waveHeight: 15, waveSpeed: 0.5, backgroundColor: bg };
+                    break;
+                case 'NET':
+                    options = { ...options, color: accent, backgroundColor: bg, points: 10, maxDistance: 20, spacing: 15 };
+                    break;
+                case 'DOTS':
+                    options = { ...options, color: accent, color2: accent, backgroundColor: bg, size: 2.0 };
+                    break;
+                case 'RINGS':
+                    options = { ...options, color: accent, backgroundColor: bg };
+                    break;
+                case 'HALO':
+                    options = { ...options, baseColor: bg, backgroundColor: bg, amplitudeFactor: 1.5 };
+                    break;
+                case 'CLOUDS':
+                    options = { ...options, backgroundColor: bg, skyColor: accent, cloudColor: isLight ? 0xffffff : 0x334d7a };
+                    break;
+                default:
+                    options = { ...options, color: accent, backgroundColor: bg };
+            }
+
+            try {
+                vantaInstance = VANTA[effectName](options);
+                // Post-init hijack for complex effects
+                if (vantaInstance.colors) vantaInstance.colors = [accent, accent];
+                if (typeof vantaInstance.restart === 'function') vantaInstance.restart();
+            } catch (e) {
+                console.error("Vanta init failed for:", effectName, e);
+            }
+        } else if (typeof VANTA !== 'undefined') {
+            // Fallback to FOG if requested effect isn't loaded yet
+            loadVantaScript(effectName).then(() => initVanta(theme, effectName));
         }
     }
 
@@ -104,9 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     const themeToggle = document.getElementById('theme-toggle');
     const savedTheme = localStorage.getItem('theme');
-
-    // Default to 'dark' unless 'light' is explicitly saved
-    // Supporting system preferences as a fallback
     const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
     const currentTheme = savedTheme || (systemPrefersLight ? 'light' : 'dark');
 
@@ -124,6 +195,83 @@ document.addEventListener('DOMContentLoaded', () => {
             const newTheme = isLight ? 'light' : 'dark';
             localStorage.setItem('theme', newTheme);
             initVanta(newTheme);
+        });
+    }
+
+    // ============================================
+    // 0d. THE MAGIC SHOCKWAVE SYSTEM
+    // ============================================
+    const vantaTrigger = document.getElementById('vanta-trigger');
+    const vantaShockwave = document.getElementById('vanta-shockwave');
+
+    if (vantaTrigger && vantaShockwave) {
+        vantaTrigger.addEventListener('dblclick', async (e) => {
+            if (isVantaTransitioning) return;
+            isVantaTransitioning = true;
+            
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // 1. Prepare for transition
+            const heroSection = document.getElementById('home');
+            const rect = vantaTrigger.getBoundingClientRect();
+            const heroRect = heroSection.getBoundingClientRect();
+
+            // Calculate center as percentage relative to hero
+            const centerX = ((rect.left + rect.width/2) - heroRect.left) / heroRect.width * 100;
+            const centerY = ((rect.top + rect.height/2) - heroRect.top) / heroRect.height * 100;
+
+            // 2. Select next SEQUENTIAL effect
+            const currentEffect = window._VANTA_OVERRIDE;
+            const currentIndex = vantaEffectsPool.indexOf(currentEffect);
+            const nextIndex = (currentIndex + 1) % vantaEffectsPool.length;
+            const nextEffect = vantaEffectsPool[nextIndex];
+
+            // 3. Pre-load next script
+            try {
+                await window.loadVantaScript(nextEffect);
+            } catch (err) {
+                console.error("Failed to load Vanta effect:", nextEffect, err);
+                isVantaTransitioning = false;
+                return;
+            }
+
+            // 4. SHOCKWAVE ANIMATION
+            vantaShockwave.style.display = 'block';
+            
+            const tl = gsap.timeline();
+            
+            // Expand from trigger point
+            tl.fromTo(vantaShockwave, 
+                { clipPath: `circle(0% at ${centerX}% ${centerY}%)`, opacity: 1 },
+                {
+                    clipPath: `circle(150% at ${centerX}% ${centerY}%)`,
+                    duration: 1.8,
+                    ease: "power2.out",
+                    onStart: () => {
+                        document.body.style.cursor = 'wait';
+                    }
+                }
+            );
+
+            // Swap Background mid-way for surgical precision
+            tl.add(() => {
+                window._VANTA_OVERRIDE = nextEffect;
+                const currentTheme = document.documentElement.classList.contains('light-mode') ? 'light' : 'dark';
+                initVanta(currentTheme, nextEffect);
+            }, "-=0.8");
+
+            // Fade out
+            tl.to(vantaShockwave, {
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.inOut",
+                onComplete: () => {
+                    vantaShockwave.style.display = 'none';
+                    document.body.style.cursor = '';
+                    isVantaTransitioning = false;
+                }
+            });
         });
     }
 

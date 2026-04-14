@@ -2798,3 +2798,17 @@ html.lenis {
         display: none;
     }
 }
+
+/* ============================================
+   VANTA SHOCKWAVE OVERLAY
+   ============================================ */
+#vanta-shockwave {
+    position: absolute;
+    inset: 0;
+    z-index: 5; /* Above background, below content */
+    background: var(--bg);
+    clip-path: circle(0% at 50% 50%);
+    display: none;
+    pointer-events: none;
+    will-change: clip-path;
+}
