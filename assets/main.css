@@ -2693,3 +2693,108 @@ html.lenis {
         gap: 1.5rem !important;
     }
 }
+/* ============================================
+   CINEMATIC BACKGROUND MUSIC PLAYER
+   ============================================ */
+.music-controller {
+    position: fixed;
+    right: 3rem;
+    bottom: 3rem;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 0.8rem 1.2rem;
+    border-radius: 50px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.music-controller:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    padding-right: 1.5rem;
+}
+
+.music-info {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--fg);
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.music-controller:hover .music-info {
+    opacity: 0.6;
+    width: 100px;
+    margin-right: 0.5rem;
+}
+
+#music-toggle {
+    background: none;
+    border: none;
+    color: var(--fg);
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+#music-toggle:hover {
+    color: var(--accent);
+}
+
+/* Visualizer Bars */
+.visualizer {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 15px;
+}
+
+.bar {
+    width: 2px;
+    height: 100%;
+    background: var(--accent);
+    border-radius: 1px;
+    transition: height 0.3s ease;
+}
+
+.visualizer.playing .bar {
+    animation: bounce 1.2s ease-in-out infinite;
+}
+
+.visualizer.playing .bar:nth-child(1) { animation-delay: 0.1s; }
+.visualizer.playing .bar:nth-child(2) { animation-delay: 0.3s; }
+.visualizer.playing .bar:nth-child(3) { animation-delay: 0.2s; }
+.visualizer.playing .bar:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+    0%, 100% { height: 4px; }
+    50% { height: 15px; }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .music-controller {
+        right: 1.5rem;
+        bottom: 1.5rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    .music-info {
+        display: none;
+    }
+}

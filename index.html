@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -812,11 +812,31 @@
 
     </div>
 
+
+    <!-- Cinematic Background Music -->
+    <div class="music-controller" id="music-controller" title="Cinematic Experience">
+        <div class="visualizer">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <span class="music-info">INTERSTELLAR</span>
+        <button id="music-toggle" aria-label="Toggle Background Music">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+
+    <audio id="bg-music" loop preload="auto">
+        <source src="assets/music/interstellar.mp3" type="audio/mpeg">
+    </audio>
+
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="assets/scripts.js?v=5.0"></script>
     <script src="assets/terminal.js"></script>
+    <script src="assets/music-player.js"></script>
 </body>
 
 </html>
