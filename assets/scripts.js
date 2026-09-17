@@ -182,16 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         blurXTo(e.clientX);
         blurYTo(e.clientY);
 
-        // Update Hero Reveal Mask
-        if (heroText) {
-            const rect = heroText.getBoundingClientRect();
-            const relX = ((e.clientX - rect.left) / rect.width) * 100;
-            const relY = ((e.clientY - rect.top) / rect.height) * 100;
 
-            // Set CSS Variable for clip-path or update property directly
-            heroText.style.setProperty('--mask-x', `${relX}%`);
-            heroText.style.setProperty('--mask-y', `${relY}%`);
-        }
     });
 
     // Cursor hover effects
@@ -209,6 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+
     // ============================================
     // 3. HERO REVEAL MOUSE INTERACTION
     // ============================================
@@ -224,7 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const relX = e.clientX - rect.left;
             const relY = e.clientY - rect.top;
 
-            // Updated selectors to new layer-based structure (200px circle)
             [revealLayer, mainLayer].forEach(layer => {
                 layer.style.setProperty('--mask-size', '200px');
                 layer.style.setProperty('--mask-pos-x', relX + 'px');
@@ -277,8 +269,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     gsap.registerPlugin(ScrollTrigger);
 
-    // Fade in sections
-    const sections = document.querySelectorAll('section');
+    // Fade in sections (excluding hero section)
+    const sections = document.querySelectorAll('section:not(.hero)');
     sections.forEach(section => {
         gsap.from(section, {
             opacity: 0,

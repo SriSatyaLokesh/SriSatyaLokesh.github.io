@@ -1,6 +1,6 @@
 # Satya K | Lead Engineer & Architect
 
-Professional portfolio distilling 7+ years of experience in building scalable backend architectures, AI-driven automation, and distributed systems.
+Professional portfolio distilling 8+ years of experience in building scalable backend architectures, AI-driven automation, and distributed systems.
 
 ## About Me
 I'm a **Lead Engineer** with a passion for building robust digital experiences. I operate as a single-handed force, taking end-to-end ownership from PRD creation and system design to production-grade implementation and deployment.
