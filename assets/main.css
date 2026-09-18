@@ -1052,13 +1052,68 @@ body.is-touch .cursor-blur {
     flex: 1;
 }
 
-.about-side-actions {
-    flex-shrink: 0;
-    padding-top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
+.about-lead {
+    font-weight: 400;
+    font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+    line-height: 1.5;
+    color: var(--fg);
+    margin-bottom: 2rem;
+}
+
+.about-lead strong {
+    color: var(--fg);
+    font-weight: 700;
+}
+
+.about-body {
+    font-weight: 400;
+    font-size: var(--text-md);
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+}
+
+.about-body strong {
+    color: var(--fg);
+    font-weight: 600;
+}
+
+.accent-text {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* Subtle Hover Animations for About Text */
+.accent-text,
+.about-body strong,
+.about-lead strong {
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.2, 1, 0.3, 1), text-shadow 0.3s ease;
+}
+
+.accent-text:hover,
+.about-body strong:hover,
+.about-lead strong:hover {
+    color: #FF7A00 !important;
+    text-shadow: 0 0 12px rgba(255, 92, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+.accent-text::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.accent-text:hover::after {
+    width: 100%;
 }
 
 .profile-img-container {
@@ -1094,69 +1149,131 @@ body.is-touch .cursor-blur {
     }
 }
 
-.about-lead {
-    font-weight: 400;
-    font-size: clamp(1.2rem, 1.8vw, 1.6rem);
-    line-height: 1.5;
-    color: var(--fg);
-    margin-bottom: 2rem;
-}
-
-.about-lead strong {
-    color: var(--fg);
-    font-weight: 700;
-}
-
-.about-body {
-    font-weight: 400;
-    font-size: var(--text-md);
-    line-height: 1.8;
-    color: var(--muted);
-    margin-bottom: 1.5rem;
-}
-
-.about-body strong {
-    color: var(--fg);
-    font-weight: 600;
-}
-
-.accent-text {
-    color: var(--accent);
-    font-weight: 700;
+/* Premium Side Actions Buttons */
+.about-side-actions {
+    flex-shrink: 0;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    width: 280px;
 }
 
 .resume-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.8rem;
-    padding: 0.8rem 1.5rem;
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--fg);
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.95rem 1.6rem;
+    font-weight: 800;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    min-height: 44px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
     touch-action: manipulation;
     cursor: pointer;
     white-space: nowrap;
+    transition: all 0.35s cubic-bezier(0.2, 1, 0.3, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.resume-btn:hover {
-    background: var(--accent);
-    color: #000;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 92, 0, 0.2);
+/* Primary Button: DOWNLOAD RESUME */
+.btn-primary-glow {
+    background: linear-gradient(135deg, #FF5C00 0%, #FF7A00 50%, #FF9E00 100%);
+    color: #000000 !important;
+    border: none;
+    box-shadow: 0 8px 25px rgba(255, 92, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-.resume-btn:active {
-    transform: scale(0.96);
-    background: var(--accent);
-    color: #000;
+.btn-primary-glow .btn-icon {
+    font-size: 1rem;
+    color: #000000;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary-glow .btn-shimmer {
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    transform: rotate(30deg);
+    transition: left 0.75s ease;
+    pointer-events: none;
+}
+
+.btn-primary-glow:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 16px 35px rgba(255, 92, 0, 0.55), 0 0 25px rgba(255, 92, 0, 0.4);
+}
+
+.btn-primary-glow:hover .btn-shimmer {
+    left: 180%;
+}
+
+.btn-primary-glow:hover .btn-icon {
+    transform: translateY(3px) scale(1.15);
+}
+
+.btn-primary-glow:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Secondary Button: EXPLORE MY BLOG */
+.btn-secondary-glass {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 92, 0, 0.4);
+    color: var(--fg) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+:root.light-mode .btn-secondary-glass {
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(255, 92, 0, 0.4);
+    color: var(--fg) !important;
+}
+
+.btn-secondary-glass .btn-icon {
+    font-size: 0.95rem;
+    color: var(--accent);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary-glass .btn-external-icon {
+    font-size: 0.75rem;
+    color: var(--muted);
+    transition: transform 0.3s ease, color 0.3s ease;
+    margin-left: auto;
+}
+
+.btn-secondary-glass:hover {
+    background: var(--accent) !important;
+    border-color: var(--accent) !important;
+    color: #000000 !important;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 14px 30px rgba(255, 92, 0, 0.4);
+}
+
+.btn-secondary-glass:hover .btn-icon {
+    color: #000000;
+    transform: rotate(-15deg) scale(1.15);
+}
+
+.btn-secondary-glass:hover .btn-external-icon {
+    color: #000000;
+    transform: translate(3px, -3px);
+}
+
+.btn-secondary-glass:active {
+    transform: translateY(-1px) scale(0.98);
 }
 
 .contact-actions {
@@ -1168,6 +1285,12 @@ body.is-touch .cursor-blur {
     width: 100%;
     max-width: 600px;
     margin-top: 3rem;
+}
+
+.contact-actions .resume-btn {
+    width: auto;
+    min-width: 220px;
+    max-width: 280px;
 }
 
 /* Mobile Optimization: Touch Targets & Typography */
